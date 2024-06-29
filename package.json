@@ -1,7 +1,7 @@
 {
   "name": "lpms-frontend",
   "version": "0.1.0",
-  "homepage": "http://hybrid.srishticampus.in:4043/legal_liaison/",
+  "homepage": "http://hybrid.srishticampus.in:4041/legal_practice/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",

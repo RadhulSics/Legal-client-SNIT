@@ -78,7 +78,7 @@ import UserForgotPassword from './Components/User/UserForgotPassword';
 
 function App() {
   return (
-    <BrowserRouter basename="legal_liaison">
+    <BrowserRouter basename="legal_practice">
       <div>
         <Routes>
           {/* Client routes */}
