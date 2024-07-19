@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import img2 from "../../Assets/adv3.avif";
-import './BarCouncilLogin.css';
+import img2 from "../../Assets/Council.jpg";
 import { Link } from 'react-router-dom';
+import '../BarCouncil/BarCouncilLogin.css'
+import { toast } from 'react-toastify';
 
 function BarCouncilLogin() {
   const [data, setData] = useState({
@@ -22,16 +23,18 @@ function BarCouncilLogin() {
     }));
 
     setErrors(prevErrors => ({
-        ...prevErrors,
-        [name]: ''
+      ...prevErrors,
+      [name]: ''
     }));
   };
 
   const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!value.trim()) {
       return 'Email is required';
+    } else if (!emailRegex.test(value)) {
+      return 'Invalid email format';
     }
-    // Add more email validation logic if needed
     return '';
   };
 
@@ -45,7 +48,7 @@ function BarCouncilLogin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    
     let errors = {};
 
     errors.email = validateEmail(data.email);
@@ -53,58 +56,77 @@ function BarCouncilLogin() {
 
     setErrors(errors);
 
-    // Proceed with login if there are no errors
     if (Object.values(errors).every(error => error === '')) {
-      // Perform login logic here
+      if (data.email === "barcouncil@gmail.com" && data.password === "pwd") {
+        toast.success("Success message!");
+        // Redirect to admin dashboard or set auth state
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: 'Invalid credentials',
+          password: 'Invalid credentials'
+          
+        }));
+        toast.error("Invalid credentials");
+      }
     }
+  };
+  const handleReset = () => {
+    setData({
+      email: '',
+      password: ''
+    });
+    setErrors({
+      email: '',
+      password: ''
+    });
   };
 
   return (
     <div>
-      <div class="container barcouncillogindiv1">
-        <div class="card-header mx-auto  bg-img1">
-          <h3 class="mx-auto  barcouncilloginformhead d-flex justify-content-center"> BarCouncil Login  </h3>
-        </div>
-        <div className="container d-flex flex-row bd-highlight mb-3 barcouncillogindiv2 ">
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group mb-3">
-                            <input
-                                type="text"
-                                name="email"
-                                value={data.email}
-                                onChange={handleChange}
-                                className="form-control form-control-lg"
-                                placeholder="Your Email Here"
-                            />
-                            {errors.email && <div className="text-danger">{errors.email}</div>}
-                        </div>
-
-                        <div className="form-group">
-                            <input
-                                type="password"
-                                name="password"
-                                value={data.password}
-                                onChange={handleChange}
-                                className="form-control form-control-lg advocateloginform1"
-                                placeholder="Password Here"
-                            />
-                            {errors.password && <div className="text-danger">{errors.password}</div>}
-                        </div>
-
-                        <div className="form-group">
-                            <input
-                                type="submit"
-                                name="btn"
-                                value="Login"
-                                className="btn  btn-outline-danger float-right login_btn advocateloginbtn"
-                            />
-                        </div>
-                        
-                    </form>
-
+      <div className='barcouncil_bg container-fluid'>
+        <p className='text-center fs-3 pt-4'>BarCouncil</p>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 col-sm-6 mt-5">
+            <p className='text-center fs-4'>Login Here</p>
+            <form onSubmit={handleSubmit}>
+            <div className='col-8 mt-5 ms-5'>
+              <div className='row mb-3'>
+                <label className='barcouncil_text'>Email id</label>
+                <input type='text' className='form-control' placeholder='Email id' name='email' onChange={handleChange} />
+                {errors.email && <span className="text-danger">{errors.email}</span>}
+              </div>
+              <div className='row'>
+                <label className='barcouncil_text'>Password</label>
+                <input type='password' className='form-control ' placeholder='password'name='password' onChange={handleChange} />
+                {errors.password&&<sapn className='text-danger'>{errors.password}</sapn>}
+              </div>
+              <div className='row float-end mt-2'>
+                <Link to='' className='text-decoration-none'><p className='text-dark '>Forgot Password?</p></Link>
+              </div>
+              <div className='row mt-5 ms-2'>
+                <div className='col-6 mt-3'>
+                  <button className='barcouncil_btn_bg_text col-8 rounded-5' type='submit'>submit</button>
                 </div>
+                <div className='col-6 mt-3'>
+                  <button className='barcouncil_btn_bg_text col-8 rounded-5' type='reset' onClick={handleReset}>Reset</button>
+                </div>
+              </div>
+              <div className='row d-flex  mt-3'>
+                <p>Don't have an account?<Link to='' className=' text-decoration-none text_colo_lik ms-2'>Register here.</Link> </p>
+              </div>
+            </div>
+            </form>
+          </div>
+          <div className='col-lg-6 col-sm-6 mt-5'>
+          <img src={img2} className="img-fluid imgs w-100"  alt="..."/>
+          </div>
+        </div>
       </div>
     </div>
+
   );
 }
 
