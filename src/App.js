@@ -75,6 +75,9 @@ import AdvocateEditArticle from './Components/Advocates/AdvocateEditArticle';
 import AdvocateForgotPassword from './Components/Advocates/AdvocateForgotPassword';
 import UserForgotPassword from './Components/User/UserForgotPassword';
 import BarcouncilNav from './Components/BarCouncil/BarcouncilNav';
+import BarCouncilSidebar from './Components/BarCouncil/BarCouncilSidebar';
+import BarCouncildashboard from './Components/BarCouncil/BarCouncildashboard';
+import BarCouncilWholedashboard from './Components/BarCouncil/BarCouncilWholedashboard';
 
 
 function App() {
@@ -138,7 +141,7 @@ function App() {
 
           {/* Bar council routes */}
           <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />]} />
-          <Route path="/BarCouncil-nav" element={<BarcouncilNav/>} />
+          <Route path="/BarCouncil-dashboard" element={<BarCouncilWholedashboard/>} />
 
           {/* Admin routes */}
           <Route path="/AdminLogin" element={[<LandingNavbar />, <FormHead title="Admin Login" />, <AdminLogin />, <AdminFooter />]} />

@@ -89,7 +89,7 @@ function BarCouncilLogin() {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-sm-6 mt-5">
+          <div className="col-6 mt-5">
             <p className='text-center fs-4'>Login Here</p>
             <form onSubmit={handleSubmit}>
             <div className='col-8 mt-5 ms-5'>
@@ -106,7 +106,7 @@ function BarCouncilLogin() {
               <div className='row float-end mt-2'>
                 <Link to='' className='text-decoration-none'><p className='text-dark '>Forgot Password?</p></Link>
               </div>
-              <div className='row mt-5 ms-2'>
+              <div className='row mt-5 ms-2 d-flex justify-content-evenly'>
                 <div className='col-6 mt-3'>
                   <button className='barcouncil_btn_bg_text col-8 rounded-5' type='submit'>submit</button>
                 </div>
@@ -120,7 +120,7 @@ function BarCouncilLogin() {
             </div>
             </form>
           </div>
-          <div className='col-lg-6 col-sm-6 mt-5'>
+          <div className='col-6 mt-5'>
           <img src={img2} className="img-fluid imgs w-100"  alt="..."/>
           </div>
         </div>

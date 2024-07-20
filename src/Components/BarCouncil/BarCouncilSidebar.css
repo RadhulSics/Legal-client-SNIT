@@ -1,0 +1,22 @@
+.Sidebar_top{
+    min-height: 200px;
+    background-color: #9c6c04;
+    color: white;
+    text-align: center;
+}
+.Sidebar_top_text{
+    font-weight: 500;
+}
+.sidebar_bottom{
+    min-height: 508px;
+    max-height: auto;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.sidebar_bottom_text{
+    color: white;
+}
+.sidebar_bottom_text:hover{
+    color: white;
+}
