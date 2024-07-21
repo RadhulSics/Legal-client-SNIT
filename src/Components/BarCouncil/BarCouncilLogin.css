@@ -24,6 +24,9 @@
 .text_colo_lik{
     color: #986F06;
 }
+.text_colo_lik:hover{
+    color: #986F06;
+}
 .imgs{
    
        max-width: 100%;

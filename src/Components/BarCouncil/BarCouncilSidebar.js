@@ -10,12 +10,12 @@ function BarCouncilSidebar() {
           <p className='fs-5 Sidebar_top_text'>All Sysytems are running smoothly</p>
           </div>
           <div className='row sidebar_bottom pt-5'>
-          <Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p>Text-1</p></Link>
-            <Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p>Text-2</p></Link>
-            <Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p>Text-3</p></Link>
-            <Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p>Text-4</p></Link>
-            <Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p>Text-5</p></Link>
-            <Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p>Text-6</p></Link>
+            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-1</p></Link></p>
+            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-2</p></Link></p>
+            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-3</p></Link></p>
+            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-4</p></Link></p>
+            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-5</p></Link></p>
+            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-6</p></Link></p>
           </div>
         
     </div>

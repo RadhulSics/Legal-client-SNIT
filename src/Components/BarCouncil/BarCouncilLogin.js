@@ -104,7 +104,7 @@ function BarCouncilLogin() {
                 {errors.password&&<sapn className='text-danger'>{errors.password}</sapn>}
               </div>
               <div className='row float-end mt-2'>
-                <Link to='' className='text-decoration-none'><p className='text-dark '>Forgot Password?</p></Link>
+                <Link to='#' className='text-decoration-none'><p className='text-dark '>Forgot Password?</p></Link>
               </div>
               <div className='row mt-5 ms-2 d-flex justify-content-evenly'>
                 <div className='col-6 mt-3'>
@@ -115,7 +115,7 @@ function BarCouncilLogin() {
                 </div>
               </div>
               <div className='row d-flex  mt-3'>
-                <p>Don't have an account?<Link to='' className=' text-decoration-none text_colo_lik ms-2'>Register here.</Link> </p>
+                <p>Don't have an account?<Link to='#' className=' text-decoration-none text_colo_lik ms-2'>Register here.</Link> </p>
               </div>
             </div>
             </form>
