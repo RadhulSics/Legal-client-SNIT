@@ -75,9 +75,7 @@ import AdvocateEditArticle from './Components/Advocates/AdvocateEditArticle';
 import AdvocateForgotPassword from './Components/Advocates/AdvocateForgotPassword';
 import UserForgotPassword from './Components/User/UserForgotPassword';
 import BarcouncilNav from './Components/BarCouncil/BarcouncilNav';
-import BarCouncilSidebar from './Components/BarCouncil/BarCouncilSidebar';
-import BarCouncildashboard from './Components/BarCouncil/BarCouncildashboard';
-import BarCouncilWholedashboard from './Components/BarCouncil/BarCouncilWholedashboard';
+import BarCouncilMain from './Components/BarCouncil/BarCouncilMain';
 
 
 function App() {
@@ -141,7 +139,11 @@ function App() {
 
           {/* Bar council routes */}
           <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />]} />
-          <Route path="/BarCouncil-dashboard" element={<BarCouncilWholedashboard/>} />
+          <Route path="/BarCouncil-dashboard" element={[<BarcouncilNav/>,<BarCouncilMain data='dashboard'/>]} />
+          <Route path="/BarCouncil_view_advocates" element={[<BarcouncilNav/>,<BarCouncilMain data='viewadvocate'/>]} />
+          <Route path="/BarCouncil_view_details" element={[<BarcouncilNav/>,<BarCouncilMain data='details'/>]} />
+          <Route path="/BarCouncil_view_complines" element={[<BarcouncilNav/>,<BarCouncilMain data='complaints'/>]} />
+          <Route path="/BarCouncil-main" element={<BarCouncilMain/>} />
 
           {/* Admin routes */}
           <Route path="/AdminLogin" element={[<LandingNavbar />, <FormHead title="Admin Login" />, <AdminLogin />, <AdminFooter />]} />
@@ -159,7 +161,7 @@ function App() {
           <Route path="/admin_view_intern_detailed_req/:id" element={[<AdminNav />, <AdminMain data="interndetailreq" />, <AdminFooter />]} />
           <Route path="/admin_view_intern_details/:id" element={[<AdminNav />, <AdminMain data="interndetails" />, <AdminFooter />]} />
           <Route path="/admin_view_approved_interns" element={[<AdminNav />, <AdminMain data="approvedInterns" />, <AdminFooter />]} />
-          {/* <Route path="/admin_view_complaints" element={[<AdminNav />, <AdminMain data="complaints" />, <AdminFooter />]} /> */}
+          <Route path="/admin_view_complaints" element={[<AdminNav />, <AdminMain data="complaints" />, <AdminFooter />]} />
 
 
           <Route path="/adminviewjunioradvocaterequest" element={[<AdminNav />,<AdminMain data='approverejectjunioradvocate'/>, <AdminFooter />]} />

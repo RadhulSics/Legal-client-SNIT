@@ -10,9 +10,9 @@ function BarCouncilSidebar() {
           <p className='fs-5 Sidebar_top_text'>All Sysytems are running smoothly</p>
           </div>
           <div className='row sidebar_bottom pt-5'>
-            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-1</p></Link></p>
-            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-2</p></Link></p>
-            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-3</p></Link></p>
+            <p><Link to='/BarCouncil-dashboard' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Dashboard</p></Link></p>
+            <p><Link to='/BarCouncil_view_advocates' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>View Advocate</p></Link></p>
+            <p><Link to='/BarCouncil_view_complines' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>View Complaints</p></Link></p>
             <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-4</p></Link></p>
             <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-5</p></Link></p>
             <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-6</p></Link></p>

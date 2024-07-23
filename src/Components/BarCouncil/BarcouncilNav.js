@@ -7,7 +7,7 @@ import img2 from "../../Assets/Logout.png";
 function BarcouncilNav() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark landing_custom_navbar" style={{minHeight:'10vh'}} >
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark landing_custom_navbar" style={{ minHeight: '10vh' }} >
         <div className="container">
           <Link className="navbar-brand" to="#home">
             <img
@@ -32,15 +32,15 @@ function BarcouncilNav() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
-              <li className='nav-item'><Link to='#' className='nav-link mt-2 '>BarCouncil</Link></li>
+              <li className='nav-item'><Link to='/BarCouncil-dashboard' className='nav-link mt-2 '>Dashboard</Link></li>
               <li className='nav-item'><Link to='#' className='nav-link'>
-              <img
-              alt="Logo"
-              src={img2}
-              width="50"
-              height="50"
-              className="d-inline-block align-top"
-            />
+                <img
+                  alt="Logo"
+                  src={img2}
+                  width="50"
+                  height="50"
+                  className="d-inline-block align-top"
+                />
               </Link></li>
             </ul>
           </div>
