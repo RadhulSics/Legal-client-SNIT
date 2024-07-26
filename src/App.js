@@ -76,6 +76,10 @@ import AdvocateForgotPassword from './Components/Advocates/AdvocateForgotPasswor
 import UserForgotPassword from './Components/User/UserForgotPassword';
 import BarcouncilNav from './Components/BarCouncil/BarcouncilNav';
 import BarCouncilMain from './Components/BarCouncil/BarCouncilMain';
+import BarCouncilViewAllCase from './Components/BarCouncil/BarCouncilViewAllCase';
+import BarCouncilViewAllCaseDeatils from './Components/BarCouncil/BarCouncilViewAllCaseDeatils';
+import BarCouncilDbarViewAdvocate from './Components/BarCouncil/BarCouncilDbarViewAdvocate';
+import BarCouncilDbarViewAdocateDetails from './Components/BarCouncil/BarCouncilDbarViewAdocateDetails';
 
 
 function App() {
@@ -139,11 +143,17 @@ function App() {
 
           {/* Bar council routes */}
           <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />]} />
+          <Route path="/BarCouncil-main" element={<BarCouncilMain/>} />
           <Route path="/BarCouncil-dashboard" element={[<BarcouncilNav/>,<BarCouncilMain data='dashboard'/>]} />
           <Route path="/BarCouncil_view_advocates" element={[<BarcouncilNav/>,<BarCouncilMain data='viewadvocate'/>]} />
           <Route path="/BarCouncil_view_details" element={[<BarcouncilNav/>,<BarCouncilMain data='details'/>]} />
           <Route path="/BarCouncil_view_complines" element={[<BarcouncilNav/>,<BarCouncilMain data='complaints'/>]} />
-          <Route path="/BarCouncil-main" element={<BarCouncilMain/>} />
+          <Route path="/BarCouncil_view_case" element={[<BarcouncilNav/>,<BarCouncilMain data='cases'/>]} />
+          <Route path="/BarCouncil_view_detils" element={[<BarcouncilNav/>,<BarCouncilMain data='case_details'/>]} />
+          <Route path="/BarCouncil_view_d-baradvocate" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate'/>]} />
+          <Route path="/BarCouncil_view_d-baradvocate_details" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate_details'/>]} />
+          <Route path="/BarCouncil_view_adv" element={<BarCouncilDbarViewAdvocate/>} />
+          <Route path="/BarCouncil_view_d-bar_advocate" element={<BarCouncilDbarViewAdocateDetails/>} />
 
           {/* Admin routes */}
           <Route path="/AdminLogin" element={[<LandingNavbar />, <FormHead title="Admin Login" />, <AdminLogin />, <AdminFooter />]} />

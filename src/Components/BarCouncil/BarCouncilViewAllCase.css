@@ -1,0 +1,17 @@
+.barcouncil_view_all_case {
+    background-color: #aa9166;
+    height: 5rem;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: x-large;
+    padding-top: 20px;
+}
+
+.bgs {
+    min-height: 90vh;
+    background-color: #f3eded;
+}
+.tab_pos{
+    padding-left: 10vh;
+}

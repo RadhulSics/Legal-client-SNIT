@@ -1,13 +1,11 @@
 import React from 'react'
-import '../BarCouncil/BarCouncilViewDetails.css'
+import { Link } from 'react-router-dom'
 import img from '../../Assets/about_bg.jpg';
-import { Link } from 'react-router-dom';
-import BarCouncilSidebar from './BarCouncilSidebar';
 
-function BarCouncilViewDetails() {
-    return (
-        <div> 
-            <p className='fs-4 text-center mt-5'>Advocate Details</p>
+function BarCouncilDbarViewAdocateDetails() {
+  return (
+    <div>
+         <p className='fs-4 text-center mt-5'>D-bar Advocate Details</p>
             <div className='d-flex justify-content-center'>
                 <div className="container mt-5">
                     <div className="row">
@@ -119,8 +117,8 @@ function BarCouncilViewDetails() {
                     {/*End of modal */}
                 </div>
             </div>
-        </div>
-    )
+    </div>
+  )
 }
 
-export default BarCouncilViewDetails
+export default BarCouncilDbarViewAdocateDetails

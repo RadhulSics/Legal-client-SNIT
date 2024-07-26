@@ -13,8 +13,8 @@ function BarCouncilSidebar() {
             <p><Link to='/BarCouncil-dashboard' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Dashboard</p></Link></p>
             <p><Link to='/BarCouncil_view_advocates' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>View Advocate</p></Link></p>
             <p><Link to='/BarCouncil_view_complines' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>View Complaints</p></Link></p>
-            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-4</p></Link></p>
-            <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-5</p></Link></p>
+            <p><Link to='/BarCouncil_view_case' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>view Cases</p></Link></p>
+            <p><Link to='/BarCouncil_view_d-baradvocate' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>D-bar Advocate</p></Link></p>
             <p><Link to='#' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Text-6</p></Link></p>
           </div>
         

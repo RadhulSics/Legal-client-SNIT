@@ -81,7 +81,7 @@ function BarcouncilViewAllAdvocate() {
                                     <p className='text-center'>Text-2</p>
                                     <img src={img} className="card-img-top" alt="..." />
                                     <div class="card-body">
-                                        <p className='text-center'><Link to='/BarCouncil-details' className='text-decoration-underline text-dark'>View full details</Link></p>
+                                        <p className='text-center'><Link to='/BarCouncil_view_details' className='text-decoration-underline text-dark'>View full details</Link></p>
                                         <div className="d-flex justify-content-center pb-2">
                                             <ReactStars
                                                 count={5}
@@ -100,7 +100,7 @@ function BarcouncilViewAllAdvocate() {
                                     <p className='text-center'>Text-2</p>
                                     <img src={img} className="card-img-top" alt="..." />
                                     <div class="card-body">
-                                        <p className='text-center'><Link to='/BarCouncil-details' className='text-decoration-underline text-dark'>View full details</Link></p>
+                                        <p className='text-center'><Link to='/BarCouncil_view_details' className='text-decoration-underline text-dark'>View full details</Link></p>
                                         <div className="d-flex justify-content-center pb-2">
                                             <ReactStars
                                                 count={5}
@@ -119,7 +119,7 @@ function BarcouncilViewAllAdvocate() {
                                     <p className='text-center'>Text-2</p>
                                     <img src={img} className="card-img-top" alt="..." />
                                     <div class="card-body">
-                                        <p className='text-center'><Link to='/BarCouncil-details' className='text-decoration-underline text-dark'>View full details</Link></p>
+                                        <p className='text-center'><Link to='/BarCouncil_view_details' className='text-decoration-underline text-dark'>View full details</Link></p>
                                         <div className="d-flex justify-content-center pb-2">
                                             <ReactStars
                                                 count={5}

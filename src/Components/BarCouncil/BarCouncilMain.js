@@ -5,6 +5,10 @@ import BarCouncilLogin from './BarCouncilLogin'
 import BarcouncilViewAllAdvocate from './BarcouncilViewAllAdvocate'
 import BarCouncilViewDetails from './BarCouncilViewDetails'
 import BarCouncilViewComplaints from './BarCouncilViewComplaints'
+import BarCouncilViewAllCase from './BarCouncilViewAllCase'
+import BarCouncilViewAllCaseDeatils from './BarCouncilViewAllCaseDeatils'
+import BarCouncilDbarViewAdvocate from './BarCouncilDbarViewAdvocate'
+import BarCouncilDbarViewAdocateDetails from './BarCouncilDbarViewAdocateDetails'
 
 function BarCouncilMain({ data }) {
     return (
@@ -14,7 +18,7 @@ function BarCouncilMain({ data }) {
                     <BarCouncilSidebar />
                 </div>
 
-                <div class="col-sm-9 col-lg-9 ">
+                <div class="col-sm-10 col-lg-10 ">
                     {data === 'dashboard' ? (
                         <BarCouncildashboard />
                     ) : data === 'viewadvocate' ? (
@@ -23,6 +27,14 @@ function BarCouncilMain({ data }) {
                         <BarCouncilViewDetails/>
                     ): data === 'complaints'?(
                         <BarCouncilViewComplaints/>
+                    ): data === 'cases'?(
+                        <BarCouncilViewAllCase/>
+                    ): data === 'case_details'?(
+                        <BarCouncilViewAllCaseDeatils/>
+                    ): data === 'view_d-bar_advocate'?(
+                        <BarCouncilDbarViewAdvocate/>
+                    ): data === 'view_d-bar_advocate_details'?(
+                        <BarCouncilDbarViewAdocateDetails/>
                     ):
                     (
                         <BarCouncildashboard/>
