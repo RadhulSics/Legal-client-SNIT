@@ -53,19 +53,16 @@ function AdminSidebar() {
                     <label className='label-sub'>Advocate</label>
                     </Link>
                 </div>
-                <div className='adjust-space'>
+                {/* <div className='adjust-space'>
                 <img src={casesimg} className='image-adjust-1 padding each' alt='User image'/>{' '},{' '},{' '}
                 <Link to={'/admin_view_cases'}>
                 <label className='label-sub'>Cases</label>
 
                 </Link>
-                </div>
+                </div> */}
                
                
-                <div className='adjust-space'>
-                <img src={internimg} className='image-adjust-1 padding each-1' alt='User image'/>{' '},{' '},{' '}
-                    <Link to={'/admin_view_complaints'}><label className='label-sub padding'>Complaints</label></Link>
-                </div>
+                {/*   */}
                 </div>
                 </div>
             </div>
