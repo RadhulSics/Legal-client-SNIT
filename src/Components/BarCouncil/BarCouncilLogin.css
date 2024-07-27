@@ -1,0 +1,36 @@
+.barcouncil_bg {
+    height: 90px;
+    background-color: #AA9166;
+    width: 100%;
+}
+
+.barcouncil_text {
+    font-size: 15.17px;
+    font-weight: 600;
+    line-height: 20.18px;
+}
+
+.barcouncil_btn_bg_text {
+
+    border-radius: 27.09px;
+    background-color: #986f06;
+    color: #ffffff;
+    font-size: 16.11px;
+    font-weight: 900;
+    line-height: 19.5px;
+    border: none;
+    height: 40px;
+}
+.text_colo_lik{
+    color: #986F06;
+}
+.text_colo_lik:hover{
+    color: #986F06;
+}
+.imgs{
+   
+       max-width: 100%;
+       min-width: 50%;
+    height: auto;
+    
+}

@@ -1,0 +1,23 @@
+.details_img {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+}
+
+.user_text_name {
+    font-size: 23.15px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user_text_law_type {
+    font-size: 20.15px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.user_text_law_year_exp{
+    font-size: 15px;
+}
+.modeal_text{
+   color: #9d6e09; 
+}

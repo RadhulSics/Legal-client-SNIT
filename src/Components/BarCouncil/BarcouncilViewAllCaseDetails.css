@@ -1,0 +1,12 @@
+.case_details_bg{
+    background-color:#d1c3ac;
+}
+.case_details_text{
+    background-color: #d1c3ac;
+    height: 9vh;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 15px 15px 0px 0px; 
+    font-weight: 400;
+    padding-top: 5px;
+}

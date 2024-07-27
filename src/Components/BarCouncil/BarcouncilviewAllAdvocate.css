@@ -1,0 +1,14 @@
+.view_all_advocate_text{
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 60px;
+  padding-bottom: 30px;
+}
+.card_bg{
+    background-color: #f4eeee;
+}
+.card_hed_text{
+font-weight: 500;
+font-size: 18px;
+}
