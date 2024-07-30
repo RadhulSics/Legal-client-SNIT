@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AdvocateRegister.css";
 import axiosMultipartInstance from "../Constants/FormDataUrl";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../Constants/BaseUrl";
 
 function AdvocateRegister() {
   const navigate = useNavigate();
+
+  const [policy,setPolicy]=useState({})
+  const [isChecked, setIsChecked] = useState(false);
+
+
+  useEffect(()=>{
+    axiosInstance
+            .post(`/viewadvocatePolicy`)
+            .then((res) => {
+                console.log(res);
+                if (res.data.status === 200) {
+                  setPolicy(res.data.data);
+                } 
+            })
+            .catch((error) => {
+                console.log("Error fetching advocate:", error);
+            });
+  },[])
 
   const [data, setData] = useState({
     name: "",
@@ -524,11 +543,24 @@ function AdvocateRegister() {
                   )}
                 </div>
               </div>
+              <div className="row mt-2 mb-2">
+                <div className="col-12">
+                  <p className="fs-6 lh-1" ><small>{policy.advocate}</small></p>
+                  <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="termsCheckbox"
+                  checked={isChecked}
+                  onChange={(e) => setIsChecked(e.target.checked)}
+                /><label className="mx-2" >accepts the above legal policies</label>
+                </div>
+              </div>
               <div className="row mt-3 mb-2">
-                <div className="col-12 junior-submit-btn-div">
+                <div className="col-12 user_registration_button text-center mb-5">
                   <button
                     type="submit"
-                    className="btn btn-primary btn-lg junior-button-submit"
+                    className="btn-lg "
+                    disabled={!isChecked}
                   >
                     Register
                   </button>

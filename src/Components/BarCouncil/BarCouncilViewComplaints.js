@@ -1,142 +1,87 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axiosInstance from '../Constants/BaseUrl';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function BarCouncilViewComplaints() {
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         axiosInstance
-        .post("/viewAllComplaints")
-        .then((res)=>{
-            if(res.data.status === 200){
-                console.log(res);
-                setData(res.data.data || []);
-            }else{
-                setData([]);
+            .post("/viewAllComplaints")
+            .then((res) => {
+
+                if (res.data.status === 200) {
+                    console.log(res);
+                    setData(res.data.data || []);
+                } else {
+                    setData([]);
+                }
+            })
+            .catch((error) => {
+                console.log("Error!", error);
+            });
+    }, []);
+
+    const handleDeactivate = (id) => {
+        axiosInstance
+          .post(`/deBarAdvocateById/${id}`)
+          .then((res) => {
+            console.log(res);
+    
+            if (res.data.status === 200) {
+            //   setAdvocate((prevAdvocate) => ({
+            //     ...prevAdvocate,
+            //     debarred: true,
+            //   }));
+            toast.success('Debarred')
             }
-        })
-        .catch((error)=>{
-            console.log("Error!",error);
-        });
-    },[]);
+          })
+          .catch((error) => {
+            console.error("Error!", error);
+          });
+      };
+
     return (
         <div>
             <div className='d-flex justify-content-center mt-5'>
-                <div className='col '>
+                <div className='col'>
                     <div className="container-fluid">
-                        <div className="row ">
                         <p className='fs-3 text-center mb-5 fw-semibold'>Complaints</p>
-                            <div className="col-lg-3 col-sm-3">
-                                <div className="card shadow-sm" style={{ width: '16rem' }}>
-                                    <div className="card-body">
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Name</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>abcde`</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Type</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>  Client</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Date</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>2024-07-08</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Complaint</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>There is delay in response</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-3">
-                                <div className="card shadow-sm" style={{ width: '16rem' }}>
-                                    <div className="card-body">
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Name</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>abcde`</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Type</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>  Client</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Date</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>2024-07-08</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Complaint</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>There is delay in response</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-3">
-                                <div className="card shadow-sm" style={{ width: '16rem' }}>
-                                    <div className="card-body">
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Name</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>abcde`</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Type</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>  Client</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Date</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>2024-07-08</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Complaint</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>There is delay in response</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-3">
-                                <div className="card shadow-sm" style={{ width: '16rem' }}>
-                                    <div className="card-body">
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Name</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>abcde`</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>User Type</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>  Client</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Date</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>2024-07-08</p></div>
-                                        </div>
-                                        <div className='row'>
-                                            <div className='col-5'><p>Complaint</p></div>
-                                            <div className='col-2'>:</div>
-                                            <div className='col-5'><p>There is delay in response</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>User Type</th>
+                                    <th>Date</th>
+                                    <th>Complaint</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.length > 0 ? (
+                                    data.map((item, index) => (
+                                        <tr key={index}>
+                                            <td>{item.userId.name}</td>
+                                            <td>{item.advId.name}</td>
+                                            <td>{item.date.slice(0,10)}</td>
+                                            <td>{item.complaint}</td>
+                                            {/* <td><Link to={`/BarCouncil_view_details/${item.advId._id}/debar`}><button className='btn btn-danger' >Debar</button></Link> </td> */}
+                                            <td><button className='btn btn-danger' onClick={()=>{handleDeactivate(item.advId._id)}} >Debar</button></td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="4" className="text-center">No complaints found</td> 
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default BarCouncilViewComplaints
+export default BarCouncilViewComplaints;

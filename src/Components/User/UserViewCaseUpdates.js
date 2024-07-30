@@ -166,14 +166,14 @@ function UserViewCaseUpdates() {
                       </div>
                       <div>{data.advocateId.nationality}</div>
                     </div>
-                    <div className="d-flex mt-2">
-                      {/* <ReactStars
+                    <div className="d-flex mt-1 mx-3">
+                      <ReactStars
                         count={5}
                         size={30}
                         value={a}
                         onChange={addRating}
                         activeColor="#ffd700"
-                      /> */}
+                      />
                     </div>
                     <Link to={`/user_add_complaint/${data.advocateId._id}`}>
                     <button className="btn btn-recent mx-3 mt-1">Add Complaint</button>

@@ -62,31 +62,11 @@ function AdminViewSingleCase() {
     <div className="adv_view_case_req">
       <div className="container">
         <div className="d-flex justify-content-end">
-          {/* <div className="adv_view_case_req_action_grps d-flex justify-content-between">
-              <div className="adv_view_case_req_action_btn d-flex">
-                <i className="ri-upload-2-fill"></i>
-                <Link to={`/advocate_addevidence/${data.caseId._id}`}>
-                  <p>Upload Evidence</p>
-                </Link>
-              </div>
-
-              <div className="adv_view_case_req_action_btn d-flex">
-                <i className="ri-file-paper-2-line"></i>
-                <Link to={`/advocate_update_casestatus/${data.caseId._id}`}>
-                  <p>Add Case Status</p>
-                </Link>
-              </div>
-              <div className="adv_view_case_req_action_btn d-flex">
-                <i className="ri-bank-card-line"></i>
-                <Link to={`/advocate_paymentreq/${data.caseId._id}`}>
-                  <p>Request Payment</p>
-                </Link>
-              </div>
-            </div> */}
+          
         </div>
 
         <div className="row mt-3">
-          <div className="col-5">
+          <div className="col-12">
             <div className="adv_case_req_left_container1">
               <div className="adv_case_req_left_container1_head">
                 <p>Client Details</p>
@@ -129,24 +109,9 @@ function AdminViewSingleCase() {
                 </div>
               </div>
             </div>
-            <div className="adv_case_req_left_container2">
-              <div className="adv_case_req_left_container1_head">
-                <p>Opponent Details</p>
-              </div>
-              <div className="adv_case_req_left_container1_content">
-                <div className="d-flex mt-2">
-                  <div className="px-3">Name :</div>
-                  <div>{data.opponentName ? data.opponentName : "Unknown"}</div>
-                </div>
-                <div className="d-flex mt-2">
-                  <div className="px-3">Address :</div>
-                  <div>
-                    {data.opponentAddress ? data.opponentAddress : "Unknown"}
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
+          
           <div className="col-7">
             <div className="adv_case_req_right_container">
               <div className="adv_case_req_left_container1_head">
@@ -226,6 +191,25 @@ function AdminViewSingleCase() {
 
                 }
                 
+              </div>
+            </div>
+          </div>
+          <div className="col-5">
+          <div className="adv_case_req_left_container2">
+              <div className="adv_case_req_left_container1_head">
+                <p>Opponent Details</p>
+              </div>
+              <div className="adv_case_req_left_container1_content">
+                <div className="d-flex mt-2">
+                  <div className="px-3">Name :</div>
+                  <div>{data.opponentName ? data.opponentName : "Unknown"}</div>
+                </div>
+                <div className="d-flex mt-2">
+                  <div className="px-3">Address :</div>
+                  <div>
+                    {data.opponentAddress ? data.opponentAddress : "Unknown"}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

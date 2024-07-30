@@ -12,7 +12,7 @@ function BarCouncilViewDetails() {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id,type } = useParams();
 
   useEffect(() => {
     axiosInstance
@@ -27,12 +27,13 @@ function BarCouncilViewDetails() {
 
   const handleActivate = (id) => {
     axiosInstance
-      .post(`/activateAdvocateById/${id}`)
+      .post(`/removeDeBarAdvocateById/${id}`)
       .then((res) => {
+        console.log(res);
         if (res.data.status === 200) {
           setAdvocate((prevAdvocate) => ({
             ...prevAdvocate,
-            isActive: true,
+            debarred: false,
           }));
         }
       })
@@ -43,12 +44,14 @@ function BarCouncilViewDetails() {
 
   const handleDeactivate = (id) => {
     axiosInstance
-      .post(`/deactivateAdvocateById/${id}`)
+      .post(`/deBarAdvocateById/${id}`)
       .then((res) => {
+        console.log(res);
+
         if (res.data.status === 200) {
           setAdvocate((prevAdvocate) => ({
             ...prevAdvocate,
-            isActive: false,
+            debarred: true,
           }));
         }
       })
@@ -138,26 +141,29 @@ function BarCouncilViewDetails() {
                   </td>
                 </tr>
                  
-
-                  <div className="row justify-content-center mt-4 arr">
+                 {/* {type=='debar'?
+                 <div className="row justify-content-center mt-4 arr">
                     <div className="col-auto">
-                      {advocate.isActive ? (
+                      {advocate.debarred==false ? (
                         <button
-                          className="btn btn-outline-danger button-size1"
+                          className="btn btn-outline-danger"
                           onClick={() => handleDeactivate(advocate._id)}
                         >
-                          Deactivate
+                          Debar Now
                         </button>
                       ) : (
                         <button
-                          className="btn btn-outline-success button-size1"
+                          className="btn btn-outline-success "
                           onClick={() => handleActivate(advocate._id)}
                         >
-                          Activate
+                          Cancel Debar
                         </button>
                       )}
                     </div>
-                  </div>
+                  </div>:''
+                } */}
+
+                  
                 
             
               </tbody>

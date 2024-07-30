@@ -9,16 +9,31 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 function User_BookAppoinment() {
   const [advocate, setAdvocate] = useState({
-    profilePic: { filename: '' },
-    idProof: { filename: '' },
+    profilePic: { filename: "" },
+    idProof: { filename: "" },
   });
   const { id } = useParams();
   const { cid } = useParams();
-  const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem("userId");
 
-  console.log(cid);
+  const [policy, setPolicy] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axiosInstance
+      .post(`/viewuserPolicy`)
+      .then((res) => {
+        if (res.data.status === 200) {
+          setPolicy(res.data.data);
+        }
+      })
+      .catch((error) => {
+        console.log("Error fetching advocate policy:", error);
+      });
+  }, []);
 
   useEffect(() => {
     axiosInstance
@@ -27,49 +42,52 @@ function User_BookAppoinment() {
         setAdvocate(response.data.data);
       })
       .catch((error) => {
-        console.error(
-          "There was an error fetching the advocate details!", 
-          error
-        );
+        console.error("There was an error fetching the advocate details!", error);
       });
   }, [id]);
 
-  const onSubmit = () => {
-    axiosInstance
-      .post(`/createAppointment`, { userId: userId, caseId: cid, advocateId: advocate._id })
-      .then((res) => {
-        console.log(res);
-        if (res.data.status === 200) {
-          toast.success("Appointment request created successfully");
-          navigate('/user_view_recent_cases')
-        } else if(res.data.status==500)  {
-          toast.error(res.data.msg);
-        
-        } else  {
+  const handleAppointmentButtonClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  const handleModalSubmit = () => {
+    if (isChecked) {
+      axiosInstance
+        .post(`/createAppointment`, {
+          userId: userId,
+          caseId: cid,
+          advocateId: advocate._id,
+        })
+        .then((res) => {
+          if (res.data.status === 200) {
+            toast.success("Appointment request created successfully");
+            navigate("/user_view_recent_cases");
+          } else if (res.data.status === 500) {
+            toast.error(res.data.msg);
+          } else {
+            toast.error("Failed to create appointment request");
+          }
+        })
+        .catch(() => {
           toast.error("Failed to create appointment request");
-        }
-      })
-      .catch(() => {
-        toast.error("Failed to create appointment request");
-      });
+        });
+      setShowModal(false);
+    } else {
+      toast.error("Please accept the legal policies to proceed.");
+    }
   };
 
-  // Function to determine if the file is an image
-  const isImage = (filename) => {
-    return /\.(jpg|jpeg|png|gif)$/.test(filename.toLowerCase());
-  };
-
-  // Function to determine if the file is a PDF
-  const isPDF = (filename) => {
-    return /\.pdf$/.test(filename.toLowerCase());
-  };
+  const isImage = (filename) => /\.(jpg|jpeg|png|gif)$/.test(filename.toLowerCase());
+  const isPDF = (filename) => /\.pdf$/.test(filename.toLowerCase());
 
   return (
     <div>
-      <div className="junior-heading-div container-fluid">
-        <label className="junior-reg-title">Advocate Details</label>
-      </div>
-      <div className="container-fluid mt-5 ">
+      <div className="junior-heading-div container-fluid"></div>
+      <div className="container-fluid mt-5">
         <div className="row justify-content-center">
           <div className="admin_view_junioradvocate_img col-lg-4 col-md-6 col-sm-12 text-center">
             <br />
@@ -78,7 +96,6 @@ function User_BookAppoinment() {
               className="img-fluid rounded image-size"
               alt="Advocate"
             />
-
             <label className="ju-advocate-name d-block mt-3">
               {advocate.name}
             </label>
@@ -88,15 +105,19 @@ function User_BookAppoinment() {
             <label className="client-view-ad-experiance d-block">
               {advocate.experience} Years of Experience in Various Cases
             </label>
-            <Link className="ju-link-label" to="#" data-toggle="modal" data-target="#idProofModal">
+            <Link
+              className="ju-link-label"
+              to="#"
+              data-toggle="modal"
+              data-target="#idProofModal"
+            >
               View Id Proof
             </Link>
           </div>
           <div className="col-sm-6 col-lg-6">
             <div>
               <table className="table ju-custom-table">
-                <tbody>
-                 
+              <tbody>
                   <tr>
                     <td className="left-alignn">
                       <label className="ju-sub-label">
@@ -197,43 +218,135 @@ function User_BookAppoinment() {
               </table>
               <br />
               <div className="appoinment-btn-div">
-                <button className="btn btn-warning button-style-appoinment" onClick={onSubmit} >
-                  Book an Appoinment
-                </button>
+                {advocate.debarred !== true ? (
+                  <button
+                    className="btn btn-warning button-style-appoinment"
+                    onClick={handleAppointmentButtonClick}
+                  >
+                    Book an Appointment
+                  </button>
+                ) : (
+                  <b className="text-danger">Not Available</b>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-     
-      <div className="modal fade" id="idProofModal" tabIndex="-1" role="dialog" aria-labelledby="idProofModalLabel" aria-hidden="true">
+      <div
+        className={`modal fade ${showModal ? 'show' : ''}`}
+        id="policyModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="policyModalLabel"
+        aria-hidden="true"
+        style={{ display: showModal ? 'block' : 'none' }}
+      >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="idProofModalLabel">ID Proof</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <h5 className="modal-title" id="policyModalLabel">
+                Legal Policies
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick={() => setShowModal(false)}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>{policy.user}</p>
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="acceptPolicies"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                />
+                <label className="form-check-label" htmlFor="acceptPolicies">
+                  Accepts all legal policies
+                </label>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => setShowModal(false)}
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleModalSubmit}
+                disabled={!isChecked}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="modal fade"
+        id="idProofModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="idProofModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="idProofModalLabel">
+                ID Proof
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body">
               {isImage(advocate.idProof.filename) && (
-                <img src={`${imageUrl}/${advocate.idProof.filename}`} className="img-fluid" alt="ID Proof" />
+                <img
+                  src={`${imageUrl}/${advocate.idProof.filename}`}
+                  className="img-fluid"
+                  alt="ID Proof"
+                />
               )}
               {isPDF(advocate.idProof.filename) && (
                 <iframe
                   src={`${imageUrl}/${advocate.idProof.filename}`}
                   className="embed-responsive-item"
-                  style={{ width: '100%', height: '500px' }}
+                  style={{ width: "100%", height: "500px" }}
                   title="ID Proof"
                 ></iframe>
               )}
-              {!isImage(advocate.idProof.filename) && !isPDF(advocate.idProof.filename) && (
-                <p>Unsupported file type</p>
-              )}
+              {!isImage(advocate.idProof.filename) &&
+                !isPDF(advocate.idProof.filename) && (
+                  <p>Unsupported file type</p>
+                )}
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>

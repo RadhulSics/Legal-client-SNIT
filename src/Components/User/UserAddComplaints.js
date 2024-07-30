@@ -9,6 +9,8 @@ function UserAddComplaints() {
   const { aid } = useParams();
   const navigate = useNavigate();
 
+  console.log(aid);
+
   const handleComplaintChange = (event) => {
     setComplaint(event.target.value);
   };

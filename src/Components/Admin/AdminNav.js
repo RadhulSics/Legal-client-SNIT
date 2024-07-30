@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import img1 from "../../Assets/logo2.png";
 import { Link, useNavigate } from "react-router-dom";
-import "../Admin/AdminNav.css";
+import "../Admin/AdminNav.css"; 
 
 function AdminNav() {
   const navigate = useNavigate();

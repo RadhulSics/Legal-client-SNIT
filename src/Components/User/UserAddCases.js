@@ -21,7 +21,7 @@ function UserAddCases() {
   const [status, setStatus] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [advSug, setAdvSug] = useState([]);
-  const [caseId, setCaseId] = useState('');
+  const [caseId, setCaseId] = useState("");
 
   const id = localStorage.getItem("userId");
 
@@ -37,7 +37,7 @@ function UserAddCases() {
         console.log(res);
         if (res.data.status === 200) {
           setAdvSug(res.data.suggestions);
-          setCaseId(res.data.data._id)
+          setCaseId(res.data.data._id);
           toast.success("Case Added Successfully");
         } else {
           toast.error("Failed to Add Case");
@@ -154,7 +154,7 @@ function UserAddCases() {
                   </div>
                 </div>
                 <div className="col-6">
-                {suggestions.length ? (
+                  {suggestions.length ? (
                     <div className="px-3 mb-1 text-danger">
                       <b>Suggestions</b>: {suggestions.join(", ")}
                     </div>
@@ -202,7 +202,6 @@ function UserAddCases() {
                       <option value="Health Care Law">Health Care Law</option>
                     </select>
                   </div>
-                  
                 </div>
 
                 <div className="col-6">
@@ -329,9 +328,7 @@ function UserAddCases() {
               </div>
             </form>
           </div>
-                  {
-                    console.log(advSug.length)
-                  }
+          {console.log(advSug.length)}
           {advSug.length > 0 ? (
             <div className="col-5">
               <div className="user_add_case_sugg_box2">
@@ -340,6 +337,7 @@ function UserAddCases() {
                 </div>
 
                 {advSug.map((e) => {
+                
                   return (
                     <div className="user_add_case_sugg_box1_cards mt-4">
                       <div className="user_add_case_sugg_box1_img">
@@ -356,7 +354,9 @@ function UserAddCases() {
                         </p>
                         <p>{e.specialization}</p>
                         <p className="text-end">
-                          <Link to={`/user_bookappoinment/${e._id}/${caseId}`}><i class="ri-arrow-right-line"></i></Link> 
+                          <Link to={`/user_bookappoinment/${e._id}/${caseId}`}>
+                            <i class="ri-arrow-right-line"></i>
+                          </Link>
                         </p>
                       </div>
                     </div>

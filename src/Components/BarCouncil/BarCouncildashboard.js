@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../BarCouncil/BarCouncildashboard.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 function BarCouncildashboard() {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (localStorage.getItem("barcouncilId" == null)) {
+        navigate("/");
+      }
+    });
+
     return (
         <div>
             <div className='d-flex justify-content-center mt-5'>

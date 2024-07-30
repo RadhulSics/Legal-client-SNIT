@@ -4,6 +4,8 @@ import axiosInstance from "../Constants/BaseUrl";
 import { Link } from "react-router-dom";
 import noData from "../../Assets/noDataFound.json";
 import Lottie from "lottie-react";
+
+
 function AdminViewAllCases() {
 
     const [data, setData] = useState([]);

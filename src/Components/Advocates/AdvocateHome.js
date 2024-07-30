@@ -6,10 +6,13 @@ import axiosInstance from "../Constants/BaseUrl";
 import { imageUrl } from "../Constants/Image_Url";
 import noData from "../../Assets/noDataFound.json";
 import Lottie from "lottie-react";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 function AdvocateHome() {
   const [advocate, setAdvocate] = useState({ profilePic: {}, idProof: {} });
   const [showModal, setShowModal] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +29,11 @@ function AdvocateHome() {
       .then((response) => {
         console.log(response);
         setAdvocate(response.data.data);
+        const hasSeenWarning = localStorage.getItem('hasSeenWarning');
+        if (response.data.data.debarred && !hasSeenWarning) {
+          setShowWarning(true);
+          localStorage.setItem('hasSeenWarning', 'true');
+        }
       })
       .catch((error) => {
         console.error("There was an error fetching the advocate details!", error);
@@ -33,6 +41,7 @@ function AdvocateHome() {
   }, [id]);
 
   const toggleModal = () => setShowModal(!showModal);
+  const handleCloseWarning = () => setShowWarning(false);
 
   const [data, setData] = useState([]);
   const [intern, setIntern] = useState([]);
@@ -114,32 +123,7 @@ function AdvocateHome() {
         <div className="container">
           <div className="row advocate_home_content">
             <div className="col-lg-8 col-md-6 col-sm-12 mt-3">
-              {/* <div className="container advocate_home_container1">
-                <div className="advocate_home_container_card">
-                  <p className="advocate_home_container_card_count">{data.length}</p>
-                  <p className="advocate_home_container_card_title">
-                    Case Requests
-                  </p>
-                </div>
-                <div className="advocate_home_container_card">
-                  <p className="advocate_home_container_card_count">{intern.length}</p>
-                  <p className="advocate_home_container_card_title">
-                    Intern Requests
-                  </p>
-                </div>
-                <div className="advocate_home_container_card">
-                  <p className="advocate_home_container_card_count">{jr.length}</p>
-                  <p className="advocate_home_container_card_title">
-                    Jr Advocate Requests
-                  </p>
-                </div>
-                <div className="advocate_home_container_card">
-                  <p className="advocate_home_container_card_count">{resource.length}</p>
-                  <p className="advocate_home_container_card_title">
-                    Resource Request
-                  </p>
-                </div>
-              </div> */}
+              
               <div className="container advocate_home_container2">
                 <div className="advocate_home_container2_title mt-3">
                   <p>Recent Case Requests</p>
@@ -271,8 +255,18 @@ function AdvocateHome() {
         </div>
       </div>
 
-      {/* Backdrop */}
-      {showModal && <div className="modal-backdrop fade show" />}
+      {/* Warning Modal */}
+      <Modal show={showWarning} onHide={handleCloseWarning}>
+        <Modal.Header closeButton>
+          <Modal.Title>Warning</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You are currently debarred from practice. Please contact the Bar Council for more information.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseWarning}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

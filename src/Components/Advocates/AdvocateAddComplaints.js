@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axiosInstance from '../Constants/BaseUrl';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function AdvocateAddComplaints() {
 
@@ -11,16 +12,20 @@ function AdvocateAddComplaints() {
     setComplaint(event.target.value);
   };
 
+  const navigate=useNavigate()
+
   const handleAddComplaint = (event) => {
     event.preventDefault();
     
     axiosInstance
-      .post(`/addComplaint`,{complaint:complaint,advId:id})
+      .post(`/addAppeal/${id}`,{reason:complaint})
       .then((res) => {
         console.log(res);
         if (res.data.status === 200) {
-        //   navigate(-1)
-          toast.success("Complaint Added");
+          toast.success(res.data.message);
+          // navigate(-1)
+          setComplaint('')
+          
         } else {
           toast.error("Failed ");
         }
@@ -34,7 +39,6 @@ function AdvocateAddComplaints() {
   return (
     <div>
       <div className='junior-heading-div container-fluid'>
-        <label className='junior-reg-title'>Add Complaint</label>
       </div>
       <div className='payment-card-center'>
         <div className="card card-style-change">
@@ -42,7 +46,7 @@ function AdvocateAddComplaints() {
             <div className="card-body">
               <div className='row row-position-adjust'>
                 <div className='col-5'>
-                  <p className='payment-name-style'>Complaints</p>
+                  <p className='payment-name-style'>Reason</p>
                 </div>
                 <div className='col-2'>
                   <div className='payment-name-style'>:</div>

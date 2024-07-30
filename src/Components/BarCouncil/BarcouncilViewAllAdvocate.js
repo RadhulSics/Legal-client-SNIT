@@ -76,7 +76,7 @@ function BarcouncilViewAllAdvocate() {
                           <div class="card-body">
                             <p className="text-center">
                               <Link
-                                to={`/BarCouncil_view_details/${advocates._id}`}
+                                to={`/BarCouncil_view_details/${advocates._id}/view`}
                                 className="text-decoration-underline text-dark"
                               >
                                 View full details
