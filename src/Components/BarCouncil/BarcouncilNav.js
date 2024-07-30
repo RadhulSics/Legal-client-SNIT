@@ -51,8 +51,13 @@ function BarcouncilNav() {
                   Dashboard
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to="/add_legal_policies" className="nav-link">
+                Legal Policies
+                </Link>
+              </li>
 
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   to="#"
@@ -73,7 +78,7 @@ function BarcouncilNav() {
                     View
                   </Link>
                 </div>
-              </li>
+              </li> */}
               
               <li className="nav-item">
                 <Link to={'/'} onClick={logout} className="nav-link" >
