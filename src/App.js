@@ -95,7 +95,7 @@ import AdvocateViewAppeals from './Components/Advocates/AdvocateViewAppeals';
 
 function App() {
   return (
-    <BrowserRouter basename="legal_liaison">
+    <BrowserRouter basename="legal_practice">
       <div>
         <Routes>
           {/* Client routes */}
