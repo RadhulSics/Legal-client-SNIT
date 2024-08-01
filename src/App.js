@@ -206,49 +206,7 @@ function App() {
           <Route path="/JuniorAdvocateViewProfile/:id" element={[<AdminNav />,<AdminMain data='adminviewprofile-alladvocates'/>,<AdminFooter />]} />
           <Route path="/JuniorAdvocate-profile-request/:id" element={[<AdminNav />,<AdminMain data='adminviewprofile-requests'/>,<UserFooter />]} />
 
-          {/* Junior Advocate routes */}
-          {/* <Route path="/JuniorAdvocateRegister" element={[<LandingNavbar />,<JuniorAdvocateRegistration/>,<UserFooter />]} />
-          <Route path="/JuniorAdvocateLogin" element={[<LandingNavbar />,<JuniorAdvocateLogin/>,<UserFooter />]} />       
-          <Route path="/JuniorAdvocateForgot" element={[<LandingNavbar />,<JuniorAdvocateForgotPassword/>,<UserFooter />]} />          
-          <Route path="/JuniorAdvocate-homepage" element={[<JuniorAdvocateNavbar/>,<JuniorAdvocateHome />,<UserFooter />]} /> 
-          <Route path="/JuniorAdvocate-editprofile" element={[<JuniorAdvocateNavbar/>,<JuniorAdvocateEditProfile />,<UserFooter />]} /> 
-          <Route path="/JuniorAdvocate-viewalladvocate" element={[<JuniorAdvocateNavbar/>,<JuAdvocate_ViewAllAdvocates />,<UserFooter />]} /> 
-          <Route path="/JuniorAdvocate-requestmentorship/:id" element={[<JuniorAdvocateNavbar/>,<JuAdvocate_RequestMentorshop />,<UserFooter />]} /> 
-          <Route path="/junior_adv_view_mentor" element={[<JuniorAdvocateNavbar/>,<JuniorAdvocateViewMentor />,<UserFooter />]} /> 
-          <Route path="/junior_adv_chat_to_adv/:aid" element={[<JuniorAdvocateNavbar/>,<JuniorAdvChatToAdv />,<UserFooter />]} /> 
-          <Route path="/junior_adv_chat_to_user/:aid/:cid" element={[<JuniorAdvocateNavbar/>,<JuniorAdvChatToUser />,<UserFooter />]} /> 
-          <Route path="/junior_adv_view_assigned_cases" element={[<JuniorAdvocateNavbar/>,<JuniorAdvViewAssignedCases />,<UserFooter />]} /> 
-          <Route path="/junior_adv_view_assigned_cases_details/:id/:cid" element={[<JuniorAdvocateNavbar/>,<JuniorAdvViewAssignedCasesDetails />,<UserFooter />]} /> 
-          <Route path="/junior_adv_add_complaint" element={[<JuniorAdvocateNavbar/>,<JuniorAdvAddComplaints />,<UserFooter />]} /> 
-          <Route path="/junior_adv_view_adv_cases/:id" element={[<JuniorAdvocateNavbar/>,<FormHead title="Cases of Mentor" />,<JuniorAdvViewAllAdvCases />,<UserFooter />]} /> 
-          <Route path="/junior_adv_view_adv_single_case/:id" element={[<JuniorAdvocateNavbar/>,<FormHead title="Cases of Mentor" />,<JuniorAdvViewAdvDetailCase />,<UserFooter />]} /> 
-          <Route path="/junior_adv_view_assigned_case_evidences/:id" element={[<JuniorAdvocateNavbar/>,<FormHead title="Evidences" />,<JuniorAdvViewAssignedCasesEvidences />,<UserFooter />]} />  */}
-
-
-          {/* Intern Routes */}
-
-          {/* <Route path="/intern_registration" element={[<LandingNavbar />,<InternRegistration/>,<UserFooter />]} />
-          <Route path="/intern_login" element={[<LandingNavbar />,<InternLogin/>,<UserFooter />]} />
-          <Route path="/intern_forgot_password" element={[<LandingNavbar />,<InternForgotPassword/>,<UserFooter />]} />
-          <Route path="/intern_home" element={[<InternNavbar />,<InternsHome/>,<UserFooter />]} />
-          <Route path="/intern_add_complaint" element={[<InternNavbar />,<InternAddComplaints/>,<UserFooter />]} />
-          <Route path="/intern_view_advocate" element={[<InternNavbar />,<InternViewAdv/>,<UserFooter />]} />
-          <Route path="/intern_req_internship/:id" element={[<InternNavbar />,<InternRequestInternship/>,<UserFooter />]} />
-          <Route path="/intern_view_internship_adv" element={[<InternNavbar />,<InternViewInternshipAdv/>,<UserFooter />]} />
-          <Route path="/intern_view_adv_cases/:id" element={[<InternNavbar />,<FormHead title="Cases of Mentor" />,<InternViewMentorAllCases/>,<UserFooter />]} />
-          <Route path="/intern_view_adv_single_case/:id" element={[<InternNavbar />,<FormHead title="Cases of Mentor" />,<InternViewSingleCaseOfMentor/>,<UserFooter />]} />
           
-          <Route path="/intern_chat_to_adv/:aid" element={[<InternNavbar />,<InternChatToAdv/>,<UserFooter />]} />
-          <Route path="/intern_group_chat" element={[<InternNavbar />,<InternGroupChat type={'noChat'} />,<UserFooter />]} />
-          <Route path="/intern_single_chat/:id" element={[<InternNavbar />,<InternGroupChat type={'group'} />,<UserFooter />]} />
-          <Route path="/intern_view_approved_case_resource" element={[<InternNavbar />,<InternViewApprovedCaseResource />,<UserFooter />]} />
-          <Route path="/intern_view_approved_single_case_resource/:id" element={[<InternNavbar />,<InternViewSingleCaseResource />,<UserFooter />]} />
-          <Route path="/intern_view_resource_case_status/:id" element={[<InternNavbar />,<InternViewResourceCaseStatus />,<UserFooter />]} />
-          <Route path="/intern_view_resource_evidence_info/:id" element={[<InternNavbar />,<InternViewResourceAddedEvidences />,<UserFooter />]} /> */}
-
-
-
-
           {/* Landing Page routes */}
           <Route path="/aboutus" element={[<LandingNavbar />,<AboutUs />,<UserFooter />]} />
           <Route path="/services" element={[<LandingNavbar />,<LandingServices />,<UserFooter />]} />
