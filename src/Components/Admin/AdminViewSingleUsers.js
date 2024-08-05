@@ -92,7 +92,7 @@ function AdminViewSingleUsers() {
                   </td>
                   <td className="left-alignn"> : </td>
                   <td className="left-alignn">
-                    <label className="sub-label">{advocate.address} years</label>
+                    <label className="sub-label">{advocate.address}</label>
                   </td>
                 </tr>
                 <tr>

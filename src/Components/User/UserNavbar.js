@@ -54,6 +54,9 @@ function UserNavbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/client-viewalladvocate">Advocate</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/client-viewblogs">Articles</Link>
+            </li>
             {/* <li className="nav-item">
               <Link className="nav-link" to="/user_add_complaint">Complaint</Link>
             </li> */}

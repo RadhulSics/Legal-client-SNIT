@@ -7,23 +7,22 @@ import axiosInstance from "../Constants/BaseUrl";
 function AdvocateRegister() {
   const navigate = useNavigate();
 
-  const [policy,setPolicy]=useState({})
+  const [policy, setPolicy] = useState({});
   const [isChecked, setIsChecked] = useState(false);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     axiosInstance
-            .post(`/viewadvocatePolicy`)
-            .then((res) => {
-                console.log(res);
-                if (res.data.status === 200) {
-                  setPolicy(res.data.data);
-                } 
-            })
-            .catch((error) => {
-                console.log("Error fetching advocate:", error);
-            });
-  },[])
+      .post(`/viewadvocatePolicy`)
+      .then((res) => {
+        console.log(res);
+        if (res.data.status === 200) {
+          setPolicy(res.data.data);
+        }
+      })
+      .catch((error) => {
+        console.log("Error fetching advocate:", error);
+      });
+  }, []);
 
   const [data, setData] = useState({
     name: "",
@@ -155,6 +154,12 @@ function AdvocateRegister() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Check if the legal policies checkbox is checked
+    if (!isChecked) {
+      alert("Please accept the legal policies to continue");
+      return;
+    }
 
     let errors = {};
     let formIsValid = true;
@@ -292,7 +297,7 @@ function AdvocateRegister() {
                     name="dob"
                     value={data.dob}
                     onChange={handleChange}
-                    className={errors.dob ? "error form-control form-control-lg form-input-style" : "form-control form-control-lg form-input-style"}
+                    className="form-control form-control-lg form-input-style"
                   />
                   {errors.dob && (
                     <div className="text-danger">{errors.dob}</div>
@@ -300,31 +305,13 @@ function AdvocateRegister() {
                 </div>
                 <div className="col-sm-6 col-lg-6">
                   <label className="form-label advocateRegistrationlabel">
-                    Date of Enrollment :
-                  </label>
-                  <input
-                    type="date"
-                    id="dateOfEnrollment"
-                    name="dateOfEnrollment"
-                    value={data.dateOfEnrollment}
-                    onChange={handleChange}
-                    className={errors.dateOfEnrollment ? "error form-control form-control-lg form-input-style" : " form-control form-control-lg form-input-style"}
-                  />
-                  {errors.dateOfEnrollment && (
-                    <div className="text-danger">{errors.dateOfEnrollment}</div>
-                  )}
-                </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-sm-6 col-lg-6">
-                  <label className="form-label advocateRegistrationlabel">
                     Gender :
                   </label>
                   <select
-                    className="form-select form-control-lg form-input-style"
                     name="gender"
                     value={data.gender}
                     onChange={handleChange}
+                    className="form-control form-control-lg form-input-style"
                   >
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
@@ -333,26 +320,6 @@ function AdvocateRegister() {
                   </select>
                   {errors.gender && (
                     <div className="text-danger">{errors.gender}</div>
-                  )}
-                </div>
-                <div className="col-sm-6 col-lg-6">
-                  <label className="form-label advocateRegistrationlabel">
-                    State Bar Council :
-                  </label>
-                  <select
-                    className="form-select form-control-lg form-input-style"
-                    name="bcState"
-                    value={data.bcState}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select State</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                  </select>
-                  {errors.bcState && (
-                    <div className="text-danger">{errors.bcState}</div>
                   )}
                 </div>
               </div>
@@ -375,10 +342,28 @@ function AdvocateRegister() {
                 </div>
                 <div className="col-sm-6 col-lg-6">
                   <label className="form-label advocateRegistrationlabel">
+                    Address :
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg form-input-style"
+                    placeholder="Enter your Address"
+                    name="address"
+                    value={data.address}
+                    onChange={handleChange}
+                  />
+                  {errors.address && (
+                    <div className="text-danger">{errors.address}</div>
+                  )}
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-sm-6 col-lg-6">
+                  <label className="form-label advocateRegistrationlabel">
                     Contact Number :
                   </label>
                   <input
-                    type="tel"
+                    type="text"
                     className="form-control form-control-lg form-input-style"
                     placeholder="Enter your Contact Number"
                     name="contact"
@@ -389,72 +374,14 @@ function AdvocateRegister() {
                     <div className="text-danger">{errors.contact}</div>
                   )}
                 </div>
-              </div>
-              <div className="row mt-3">
                 <div className="col-sm-6 col-lg-6">
                   <label className="form-label advocateRegistrationlabel">
-                    Educational Qualification :
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg form-input-style"
-                    placeholder="Enter your Educational Qualification"
-                    name="qualification"
-                    value={data.qualification}
-                    onChange={handleChange}
-                  />
-                  {errors.qualification && (
-                    <div className="text-danger">{errors.qualification}</div>
-                  )}
-                </div>
-                <div className="col-sm-6 col-lg-6">
-                  <label className="form-label advocateRegistrationlabel">
-                    Specialization Areas :
-                  </label>
-                  <select
-                    className="form-select form-control-lg specialization-form-select"
-                    name="specialization"
-                    value={data.specialization}
-                    onChange={handleChange}
-                  >
-                    <option value="" disabled>
-                      Select your Specialization Area
-                    </option>
-                    <option value="Criminal Law">Criminal Law</option>
-                    <option value="Civil Law">Civil Law</option>
-                    <option value="Family Law">Family Law</option>
-                    <option value="Corporate Law">Corporate Law</option>
-                    <option value="Intellectual Property Law">
-                      Intellectual Property Law
-                    </option>
-                    <option value="Environmental Law">Environmental Law</option>
-                    <option value="Tax Law">Tax Law</option>
-                    <option value="Real Estate Law">Real Estate Law</option>
-                    <option value="Constitutional Law">
-                      Constitutional Law
-                    </option>
-                    <option value="Human Rights Law">Human Rights Law</option>
-                    <option value="International Law">International Law</option>
-                    <option value="TBanking and Finance Law">
-                      Banking and Finance Law
-                    </option>
-                    <option value="Immigration Law">Immigration Law</option>
-                    <option value="Health Care Law">Health Care Law</option>
-                  </select>
-                  {errors.specialization && (
-                    <div className="text-danger">{errors.specialization}</div>
-                  )}
-                </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-sm-6 col-lg-6">
-                  <label className="form-label advocateRegistrationlabel">
-                    Email ID :
+                    Email :
                   </label>
                   <input
                     type="email"
                     className="form-control form-control-lg form-input-style"
-                    placeholder="Enter your Email ID"
+                    placeholder="Enter your Email"
                     name="email"
                     value={data.email}
                     onChange={handleChange}
@@ -463,6 +390,8 @@ function AdvocateRegister() {
                     <div className="text-danger">{errors.email}</div>
                   )}
                 </div>
+              </div>
+              <div className="row mt-3">
                 <div className="col-sm-6 col-lg-6">
                   <label className="form-label advocateRegistrationlabel">
                     Password :
@@ -477,6 +406,90 @@ function AdvocateRegister() {
                   />
                   {errors.password && (
                     <div className="text-danger">{errors.password}</div>
+                  )}
+                </div>
+                <div className="col-sm-6 col-lg-6">
+                  <label className="form-label advocateRegistrationlabel">
+                    Date of Enrollment :
+                  </label>
+                  <input
+                    type="date"
+                    id="dateOfEnrollment"
+                    name="dateOfEnrollment"
+                    value={data.dateOfEnrollment}
+                    onChange={handleChange}
+                    className="form-control form-control-lg form-input-style"
+                  />
+                  {errors.dateOfEnrollment && (
+                    <div className="text-danger">{errors.dateOfEnrollment}</div>
+                  )}
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-sm-6 col-lg-6">
+                  <label className="form-label advocateRegistrationlabel">
+                    State Bar Council :
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg form-input-style"
+                    placeholder="Enter State Bar Council"
+                    name="bcState"
+                    value={data.bcState}
+                    onChange={handleChange}
+                  />
+                  {errors.bcState && (
+                    <div className="text-danger">{errors.bcState}</div>
+                  )}
+                </div>
+                <div className="col-sm-6 col-lg-6">
+                  <label className="form-label advocateRegistrationlabel">
+                    Specialization Areas :
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg form-input-style"
+                    placeholder="Enter Specialization Areas"
+                    name="specialization"
+                    value={data.specialization}
+                    onChange={handleChange}
+                  />
+                  {errors.specialization && (
+                    <div className="text-danger">{errors.specialization}</div>
+                  )}
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-sm-6 col-lg-6">
+                  <label className="form-label advocateRegistrationlabel">
+                    Years of Experience :
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control form-control-lg form-input-style"
+                    placeholder="Enter Years of Experience"
+                    name="experience"
+                    value={data.experience}
+                    onChange={handleChange}
+                  />
+                  {errors.experience && (
+                    <div className="text-danger">{errors.experience}</div>
+                  )}
+                </div>
+                <div className="col-sm-6 col-lg-6">
+                  <label className="form-label advocateRegistrationlabel">
+                    Educational Qualification :
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg form-input-style"
+                    placeholder="Enter Educational Qualification"
+                    name="qualification"
+                    value={data.qualification}
+                    onChange={handleChange}
+                  />
+                  {errors.qualification && (
+                    <div className="text-danger">{errors.qualification}</div>
                   )}
                 </div>
               </div>
@@ -497,24 +510,6 @@ function AdvocateRegister() {
                 </div>
                 <div className="col-sm-6 col-lg-6">
                   <label className="form-label advocateRegistrationlabel">
-                    Years of Experience :
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control form-control-lg form-input-style"
-                    placeholder="Enter your Experience"
-                    name="experience"
-                    value={data.experience}
-                    onChange={handleChange}
-                  />
-                  {errors.experience && (
-                    <div className="text-danger">{errors.experience}</div>
-                  )}
-                </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-sm-6 col-lg-6">
-                  <label className="form-label advocateRegistrationlabel">
                     ID Proof Document :
                   </label>
                   <input
@@ -527,44 +522,40 @@ function AdvocateRegister() {
                     <div className="text-danger">{errors.idProof}</div>
                   )}
                 </div>
-                <div className="col-sm-6 col-lg-6">
-                  <label className="form-label advocateRegistrationlabel">
-                    Address :
+              </div>
+              <div className="row mt-3">
+                <div className="col-sm-12">
+                  <label className="form-check-label">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      checked={isChecked}
+                      onChange={() => setIsChecked(!isChecked)}
+                    />
+                    I accept the legal policies
                   </label>
-                  <textarea
-                    className="form-control form-control-lg form-input-style"
-                    placeholder="Enter your Address"
-                    name="address"
-                    value={data.address}
-                    onChange={handleChange}
-                  />
-                  {errors.address && (
-                    <div className="text-danger">{errors.address}</div>
-                  )}
                 </div>
               </div>
-              <div className="row mt-2 mb-2">
-                <div className="col-12">
-                  <p className="fs-6 lh-1" ><small>{policy.advocate}</small></p>
-                  <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="termsCheckbox"
-                  checked={isChecked}
-                  onChange={(e) => setIsChecked(e.target.checked)}
-                /><label className="mx-2" >accepts the above legal policies</label>
-                </div>
-              </div>
-              <div className="row mt-3 mb-2">
-                <div className="col-12 user_registration_button text-center mb-5">
+              <div className="row mt-3">
+              
+              <div className="col-12 user_registration_button text-center mb-5">
                   <button
                     type="submit"
                     className="btn-lg "
-                    disabled={!isChecked}
                   >
                     Register
                   </button>
                 </div>
+
+                {/* <div className="col-sm-12">
+                  <button
+                    type="submit"
+                    className="btn btn-primary form-control form-control-lg"
+                  >
+                    Register
+                  </button>
+                </div> */}
+
               </div>
             </form>
           </div>

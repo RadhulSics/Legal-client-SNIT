@@ -48,7 +48,7 @@ function AdminViewUsers() {
                     <td className="table-data">{advocate.email}</td>
                     <td className="table-data">{advocate.contact}</td>
                     <td className="table-data">{advocate.address}</td>
-                    <td className="table-data">{advocate.nationality} years</td>
+                    <td className="table-data">{advocate.nationality}</td>
                     <td className="table-data">
                       <Link to={`/admin_view_single_user/${advocate._id}`}>
                         <button className="btn1 btn btn-outline-secondary">

@@ -90,6 +90,7 @@ import BarCouncilDbarViewAdvocate from './Components/BarCouncil/BarCouncilDbarVi
 import BarCouncilDbarViewAdocateDetails from './Components/BarCouncil/BarCouncilDbarViewAdocateDetails';
 import BarCouncilLogin from './Components/BarCouncil/BarCouncilLogin';
 import AdvocateViewAppeals from './Components/Advocates/AdvocateViewAppeals';
+import UserViewBlogs from './Components/User/UserViewBlogs';
 
 
 
@@ -104,6 +105,7 @@ function App() {
           <Route path="/Userforgot" element={[<LandingNavbar />, <UserForgotPassword />,<UserFooter/>]} />
           <Route path="/UserRegistration" element={[<LandingNavbar />, <FormHead title="User Registration Form" />, <UserRegistration />,<UserFooter/>]} />
           <Route path="/user_home" element={[<UserNavbar />, <UserHome />,<UserFooter/>]} />
+          <Route path="/client-viewblogs" element={[<UserNavbar />,<FormHead title="View Articles" />, <UserViewBlogs />,<UserFooter/>]} />
           <Route path="/user_profile" element={[<UserNavbar />, <FormHead title="Client Profile View" />,<UserProfile/>,<UserFooter/>]} />
           <Route path="/user_add_case" element={[<UserNavbar />, <FormHead title="Add Case Details" />,<UserAddCases/>,<UserFooter/>]} />
           <Route path="/user_view_recent_cases" element={[<UserNavbar />, <FormHead title="Recent Cases" />,<UserViewRecentCases/>,<UserFooter/>]} />
@@ -154,7 +156,7 @@ function App() {
           <Route path="/advocate_assign_cases_to_jnradv/:jid" element={[<AdvocateNavbar />,<FormHead title="Advocate Assign Cases" />, <AdvAssignCasesToJnrAdv />, <UserFooter />]} />
           <Route path="/advocate_view_all_jnr_adv" element={[<AdvocateNavbar />, <AdvovatedViewApprovedJnrAdv />, <UserFooter />]} />
           <Route path="/advocate_add_complaints" element={[<AdvocateNavbar />,<FormHead title="Add Appeal" />, <AdvocateAddComplaints />, <UserFooter />]} />
-          <Route path="/advocate_add_articles" element={[<AdvocateNavbar />, <AdvocateAddArticle />, <UserFooter />]} />
+          <Route path="/advocate_add_articles" element={[<AdvocateNavbar />,<FormHead title="Add Articles" />, <AdvocateAddArticle />, <UserFooter />]} />
           <Route path="/advocate_view_articles" element={[<AdvocateNavbar />,<FormHead title="View Articles" />, <AdvocateViewArticles />, <UserFooter />]} />
           <Route path="/advocate_edit_articles/:id" element={[<AdvocateNavbar />, <AdvocateEditArticle />, <UserFooter />]} />
           <Route path="/advocate_view_case_req_access" element={[<AdvocateNavbar />, <AdvocateViewResourceReq />, <UserFooter />]} />
@@ -162,18 +164,18 @@ function App() {
 
 
           {/* Bar council routes */}
-          <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />]} />
+          <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />,<UserFooter/>]} />
           <Route path="/BarCouncil-main" element={<BarCouncilMain/>} /> 
-          <Route path="/BarCouncil-dashboard" element={[<BarcouncilNav/>,<BarCouncilMain data='dashboard'/>]} />
-          <Route path="/BarCouncil_view_advocates" element={[<BarcouncilNav/>,<BarCouncilMain data='viewadvocate'/>]} />
-          <Route path="/BarCouncil_view_details/:id/:type" element={[<BarcouncilNav/>,<BarCouncilMain data='details'/>]} />
-          <Route path="/BarCouncil_view_complines" element={[<BarcouncilNav/>,<BarCouncilMain data='complaints'/>]} />
-          <Route path="/BarCouncil_view_case" element={[<BarcouncilNav/>,<BarCouncilMain data='cases'/>]} />
-          <Route path="/BarCouncil_view_detils/:id" element={[<BarcouncilNav/>,<BarCouncilMain data='case_details'/>]} />
-          <Route path="/BarCouncil_view_d-baradvocate" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate'/>]} />
-          <Route path="/BarCouncil_view_d-baradvocate_details" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate_details'/>]} />
-          <Route path="/add_legal_policies" element={[<BarcouncilNav/>,<BarCouncilMain data='add_legal'/>]} />
-          <Route path="/view_all_appeals" element={[<BarcouncilNav/>,<BarCouncilMain data='appeals'/>]} />
+          <Route path="/BarCouncil-dashboard" element={[<BarcouncilNav/>,<BarCouncilMain data='dashboard'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_advocates" element={[<BarcouncilNav/>,<BarCouncilMain data='viewadvocate'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_details/:id/:type" element={[<BarcouncilNav/>,<BarCouncilMain data='details'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_complines" element={[<BarcouncilNav/>,<BarCouncilMain data='complaints'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_case" element={[<BarcouncilNav/>,<BarCouncilMain data='cases'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_detils/:id" element={[<BarcouncilNav/>,<BarCouncilMain data='case_details'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_d-baradvocate" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil_view_d-baradvocate_details" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate_details'/>,<UserFooter/>]} />
+          <Route path="/add_legal_policies" element={[<BarcouncilNav/>,<BarCouncilMain data='add_legal'/>,<UserFooter/>]} />
+          <Route path="/view_all_appeals" element={[<BarcouncilNav/>,<BarCouncilMain data='appeals'/>,<UserFooter/>]} />
 
           {/* Admin routes */}
           <Route path="/AdminLogin" element={[<LandingNavbar />, <FormHead title="Admin Login" />, <AdminLogin />, <AdminFooter />]} />

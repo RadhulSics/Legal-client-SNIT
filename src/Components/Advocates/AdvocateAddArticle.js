@@ -41,7 +41,7 @@ function AdvocateAddArticle() {
   return (
     <div>
       <div className="junior-heading-div container-fluid">
-        <label className="junior-reg-title">Add Articles</label>
+        {/* <label className="junior-reg-title">Add Articles</label> */}
       </div>
       <div className="payment-card-center">
         <div className="card card-style-change">

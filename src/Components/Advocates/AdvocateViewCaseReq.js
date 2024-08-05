@@ -46,7 +46,7 @@ function AdvocateViewCaseReq() {
         console.log(res);
         if (res.data.status === 200) {
           toast.success("Accepted Successfully");
-          navigate("/advocate_viewcasereq");
+          navigate("/advocate_view_all_recent_case");
         } else {
           toast.error("Failed");
         }

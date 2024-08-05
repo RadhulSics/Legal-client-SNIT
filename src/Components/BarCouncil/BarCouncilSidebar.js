@@ -16,7 +16,7 @@ function BarCouncilSidebar() {
         
           <div className='row Sidebar_top p-2'>
           <p className='fs-4 Sidebar_top_text mt-5'>Welcome</p>
-          <p className='fs-5 Sidebar_top_text'>All Sysytems are running smoothly</p>
+          <p className='fs-5 Sidebar_top_text'>All Sytems are running smoothly</p>
           </div>
           <div className='row sidebar_bottom pt-5'>
             <p><Link to='/BarCouncil-dashboard' className='text-decoration-none sidebar_bottom_text fs-6'><p className='text-center d-inline-flex'>Dashboard</p></Link></p>

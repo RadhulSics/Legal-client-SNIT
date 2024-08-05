@@ -50,7 +50,7 @@ function BarCouncilViewComplaints() {
               <thead>
                 <tr>
                   <th>User Name</th>
-                  <th>User Type</th>
+                  <th>Advocate Name</th>
                   <th>Date</th>
                   <th>Complaint</th>
                   <th>Action</th>
