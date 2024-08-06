@@ -9,6 +9,7 @@ import AboutUs from './AboutUs'
 import Footer from './Footer'
 import UserFooter from '../Common/UserFooter'
 import ContactUs from './ContactUs'
+import AdminFooter from '../Admin/AdminFooter'
 function Landingcarousel() {
   return (
     <div>
@@ -30,7 +31,7 @@ function Landingcarousel() {
       <AboutUs />
       {/* <ContactUs /> */}
       {/* <Footer /> */}
-      <UserFooter />
+      <AdminFooter />
     </div>
   )
 }

@@ -101,81 +101,80 @@ function App() {
         <Routes>
           {/* Client routes */}
           <Route path="/" element={(<LandingNavbar />, <LandingCarousel />)} />
-          <Route path="/UserLogin" element={[<LandingNavbar />, <FormHead title="Home / User Login" />, <UserLogin />,<UserFooter/>]} />
-          <Route path="/Userforgot" element={[<LandingNavbar />, <UserForgotPassword />,<UserFooter/>]} />
-          <Route path="/UserRegistration" element={[<LandingNavbar />, <FormHead title="User Registration Form" />, <UserRegistration />,<UserFooter/>]} />
-          <Route path="/user_home" element={[<UserNavbar />, <UserHome />,<UserFooter/>]} />
-          <Route path="/client-viewblogs" element={[<UserNavbar />,<FormHead title="View Articles" />, <UserViewBlogs />,<UserFooter/>]} />
-          <Route path="/user_profile" element={[<UserNavbar />, <FormHead title="Client Profile View" />,<UserProfile/>,<UserFooter/>]} />
-          <Route path="/user_add_case" element={[<UserNavbar />, <FormHead title="Add Case Details" />,<UserAddCases/>,<UserFooter/>]} />
-          <Route path="/user_view_recent_cases" element={[<UserNavbar />, <FormHead title="Recent Cases" />,<UserViewRecentCases/>,<UserFooter/>]} />
-          <Route path="/userfooter" element={<UserFooter />} />
-          <Route path="/client-viewalladvocate" element={[<UserNavbar />,<FormHead title="View All Advocates" />,<User_ViewAllAdvocates />,<UserFooter/>]} />
-          <Route path="/user_view_advocate_detail/:id" element={[<UserNavbar />,<User_ViewAdvocateDetail />,<UserFooter/>]} />
-          <Route path="/user-requestanadvocate/:id" element={[<UserNavbar />,<FormHead title="View Advocates" />,<User_RequestAdvocate />,<UserFooter/>]} />
-          <Route path="/user_bookappoinment/:id/:cid" element={[<UserNavbar />,<FormHead title="Advocate Details" />,<User_BookAppoinment />,<UserFooter/>]} />
-          <Route path="/user_chat_to_advocate/:aid" element={[<UserNavbar />,<FormHead title="Chat" />,<UserChattoAdvocate />,<UserFooter/>]} />
-          <Route path="/user_view_case_updations/:id" element={[<UserNavbar />,<FormHead title="Case Details" />,<UserViewCaseUpdates />,<UserFooter/>]} />
-          <Route path="/user_view_case_status/:id" element={[<UserNavbar />,<FormHead title="Case Status" />,<UserViewCaseStatus />,<UserFooter/>]} />
-          <Route path="/user_view_added_evidences/:id" element={[<UserNavbar />,<FormHead title="Evidences" />,<UserViewCaseEvidences />,<UserFooter/>]} />
-          <Route path="/user_view_adv_payment_req/:id" element={[<UserNavbar />,<FormHead title="Payment" />,<UserViewPaymentReq />,<UserFooter/>]} />
-          <Route path="/user_pay_adv_req/:id" element={[<UserNavbar />,<UserPayAdvReq />,<UserFooter/>]} />
-          <Route path="/user_add_complaint/:aid" element={[<UserNavbar />,<UserAddComplaints />,<UserFooter/>]} />
+          <Route path="/UserLogin" element={[<LandingNavbar />, <FormHead title="Home / User Login" />, <UserLogin />,<AdminFooter/>]} />
+          <Route path="/Userforgot" element={[<LandingNavbar />, <UserForgotPassword />,<AdminFooter/>]} />
+          <Route path="/UserRegistration" element={[<LandingNavbar />, <FormHead title="User Registration Form" />, <UserRegistration />,<AdminFooter/>]} />
+          <Route path="/user_home" element={[<UserNavbar />, <UserHome />,<AdminFooter/>]} />
+          <Route path="/client-viewblogs" element={[<UserNavbar />,<FormHead title="View Articles" />, <UserViewBlogs />,<AdminFooter/>]} />
+          <Route path="/user_profile" element={[<UserNavbar />, <FormHead title="Client Profile View" />,<UserProfile/>,<AdminFooter/>]} />
+          <Route path="/user_add_case" element={[<UserNavbar />, <FormHead title="Add Case Details" />,<UserAddCases/>,<AdminFooter/>]} />
+          <Route path="/user_view_recent_cases" element={[<UserNavbar />, <FormHead title="Recent Cases" />,<UserViewRecentCases/>,<AdminFooter/>]} />
+          <Route path="/client-viewalladvocate" element={[<UserNavbar />,<FormHead title="View All Advocates" />,<User_ViewAllAdvocates />,<AdminFooter/>]} />
+          <Route path="/user_view_advocate_detail/:id" element={[<UserNavbar />,<User_ViewAdvocateDetail />,<AdminFooter/>]} />
+          <Route path="/user-requestanadvocate/:id" element={[<UserNavbar />,<FormHead title="View Advocates" />,<User_RequestAdvocate />,<AdminFooter/>]} />
+          <Route path="/user_bookappoinment/:id/:cid" element={[<UserNavbar />,<FormHead title="Advocate Details" />,<User_BookAppoinment />,<AdminFooter/>]} />
+          <Route path="/user_chat_to_advocate/:aid" element={[<UserNavbar />,<FormHead title="Chat" />,<UserChattoAdvocate />,<AdminFooter/>]} />
+          <Route path="/user_view_case_updations/:id" element={[<UserNavbar />,<FormHead title="Case Details" />,<UserViewCaseUpdates />,<AdminFooter/>]} />
+          <Route path="/user_view_case_status/:id" element={[<UserNavbar />,<FormHead title="Case Status" />,<UserViewCaseStatus />,<AdminFooter/>]} />
+          <Route path="/user_view_added_evidences/:id" element={[<UserNavbar />,<FormHead title="Evidences" />,<UserViewCaseEvidences />,<AdminFooter/>]} />
+          <Route path="/user_view_adv_payment_req/:id" element={[<UserNavbar />,<FormHead title="Payment" />,<UserViewPaymentReq />,<AdminFooter/>]} />
+          <Route path="/user_pay_adv_req/:id" element={[<UserNavbar />,<UserPayAdvReq />,<AdminFooter/>]} />
+          <Route path="/user_add_complaint/:aid" element={[<UserNavbar />,<UserAddComplaints />,<AdminFooter/>]} />
 
-          <Route path="/user_chat_to_jnr_adv/:cid" element={[<UserNavbar />,<UserChatToJuniorAdv />,<UserFooter/>]} />
+          <Route path="/user_chat_to_jnr_adv/:cid" element={[<UserNavbar />,<UserChatToJuniorAdv />,<AdminFooter/>]} />
 
 
           {/* Advocate routes */}
           <Route path="/AdvcateReg" element={[<LandingNavbar />, <AdvcateReg />]} />
-          <Route path="/AdvocateLogin" element={[<LandingNavbar />, <AdvocateLogin />, <UserFooter />]} />
-          <Route path="/AdvocateForgot" element={[<LandingNavbar />, <AdvocateForgotPassword />, <UserFooter />]} />
-          <Route path="/AdvcateRegister" element={[<LandingNavbar />, <AdvocateRegister />, <UserFooter />]} />
-          <Route path="/advocate_home" element={[<AdvocateNavbar />, <AdvocateHome />, <UserFooter />]} />
-          <Route path="/advocate_edit_profile/:id" element={[<AdvocateNavbar />,<FormHead title="Advocate Profile View" />, <AdvocateEditProfile />,<UserFooter />]} />
-          {/* <Route path="/advocate_view_all_case_req" element={[<AdvocateNavbar />,<FormHead title="Case Requests" />, <AdvocateViewAllCaseReq />,<UserFooter />]} /> */}
-          {/* <Route path="/advocate_viewcasereq" element={[<AdvocateNavbar />, <Advocate_ViewCaseRequest />, <UserFooter />]} /> */}
-          <Route path="/advocate_view_intern_req" element={[<AdvocateNavbar />, <AdvocateViewInternReq />, <UserFooter />]} />
-          <Route path="/advocate_view_single_case_req/:id" element={[<AdvocateNavbar />,<FormHead title="Case Requests" />, <AdvocateViewCaseReq />,<UserFooter />]} />
-          <Route path="/advocate_view_all_recent_case" element={[<AdvocateNavbar />,<FormHead title="Recent Cases" />, <AdvocateViewAllRecentCases />,<UserFooter />]} />
-          <Route path="/advocate_view_all_interns" element={[<AdvocateNavbar />,<FormHead title="Interns" />, <AdvocateViewApprovedInterns />,<UserFooter />]} />
-          <Route path="/advocate_view_single_recent_case/:id" element={[<AdvocateNavbar />,<FormHead title="Case Tittle" />, <AdvocateViewSingleRecentCase />,<UserFooter />]} />
+          <Route path="/AdvocateLogin" element={[<LandingNavbar />, <AdvocateLogin />, <AdminFooter />]} />
+          <Route path="/AdvocateForgot" element={[<LandingNavbar />, <AdvocateForgotPassword />, <AdminFooter />]} />
+          <Route path="/AdvcateRegister" element={[<LandingNavbar />, <AdvocateRegister />, <AdminFooter />]} />
+          <Route path="/advocate_home" element={[<AdvocateNavbar />, <AdvocateHome />, <AdminFooter />]} />
+          <Route path="/advocate_edit_profile/:id" element={[<AdvocateNavbar />,<FormHead title="Advocate Profile View" />, <AdvocateEditProfile />,<AdminFooter />]} />
+          {/* <Route path="/advocate_view_all_case_req" element={[<AdvocateNavbar />,<FormHead title="Case Requests" />, <AdvocateViewAllCaseReq />,<AdminFooter />]} /> */}
+          {/* <Route path="/advocate_viewcasereq" element={[<AdvocateNavbar />, <Advocate_ViewCaseRequest />, <AdminFooter />]} /> */}
+          <Route path="/advocate_view_intern_req" element={[<AdvocateNavbar />, <AdvocateViewInternReq />, <AdminFooter />]} />
+          <Route path="/advocate_view_single_case_req/:id" element={[<AdvocateNavbar />,<FormHead title="Case Requests" />, <AdvocateViewCaseReq />,<AdminFooter />]} />
+          <Route path="/advocate_view_all_recent_case" element={[<AdvocateNavbar />,<FormHead title="Recent Cases" />, <AdvocateViewAllRecentCases />,<AdminFooter />]} />
+          <Route path="/advocate_view_all_interns" element={[<AdvocateNavbar />,<FormHead title="Interns" />, <AdvocateViewApprovedInterns />,<AdminFooter />]} />
+          <Route path="/advocate_view_single_recent_case/:id" element={[<AdvocateNavbar />,<FormHead title="Case Tittle" />, <AdvocateViewSingleRecentCase />,<AdminFooter />]} />
           
-          <Route path="/advocate_chat" element={[<AdvocateNavbar />,<FormHead title="Chat" />, <AdvocateChat type='noChat' />,<UserFooter />]} />
-          <Route path="/advocate_single_chat/:uid/:type" element={[<AdvocateNavbar />,<FormHead title="Chat" />, <AdvocateChat />,<UserFooter />]} />
+          <Route path="/advocate_chat" element={[<AdvocateNavbar />,<FormHead title="Chat" />, <AdvocateChat type='noChat' />,<AdminFooter />]} />
+          <Route path="/advocate_single_chat/:uid/:type" element={[<AdvocateNavbar />,<FormHead title="Chat" />, <AdvocateChat />,<AdminFooter />]} />
 
-          <Route path="/advocate_viewcasereq" element={[<AdvocateNavbar />,<FormHead title="Case Request" />, <Advocate_ViewCaseRequest />, <UserFooter />]} />
-          <Route path="/advocate_paymentreq/:id" element={[<AdvocateNavbar />,<FormHead title="Payment Request" />, <Advocate_PaymentRequest />, <UserFooter />]} />
-          <Route path="/advocate_addevidence/:id" element={[<AdvocateNavbar />,<FormHead title="Add Evidence" />, <Advocate_AddEvidence />, <UserFooter />]} />
-          <Route path="/advocate_view_added_evidences/:id" element={[<AdvocateNavbar />, <AdvocateViewAddedEvidences />, <UserFooter />]} />
-          <Route path="/advocate_update_casestatus/:id" element={[<AdvocateNavbar />,<FormHead title="Case Status" />, <Advocate_UpdateCaseStatus />, <UserFooter />]} />
-          <Route path="/advocate_viewjuadvocatereq" element={[<AdvocateNavbar />, <Advocate_ViewJuAdvocateRequest />, <UserFooter />]} />
-          <Route path="/advocate_view_jnr_adv_profile_req/:id/:aid" element={[<AdvocateNavbar />, <AdvocateViewJnrAdvReqProfile value='request' />, <UserFooter />]} />
-          <Route path="/advocate_view_intern_profile/:id" element={[<AdvocateNavbar />, <AdvocateViewSingleIntern />, <UserFooter />]} />
-          <Route path="/advocate_view_client_payment_status/:id" element={[<AdvocateNavbar />, <AdvocateViewClientPaymentStatus />, <UserFooter />]} />
-          <Route path="/advocate_view_case_status/:id" element={[<AdvocateNavbar />, <AdvocateViewCaseStatus />, <UserFooter />]} />
-          <Route path="/advocate_assign_cases_to_jnradv/:jid" element={[<AdvocateNavbar />,<FormHead title="Advocate Assign Cases" />, <AdvAssignCasesToJnrAdv />, <UserFooter />]} />
-          <Route path="/advocate_view_all_jnr_adv" element={[<AdvocateNavbar />, <AdvovatedViewApprovedJnrAdv />, <UserFooter />]} />
-          <Route path="/advocate_add_complaints" element={[<AdvocateNavbar />,<FormHead title="Add Appeal" />, <AdvocateAddComplaints />, <UserFooter />]} />
-          <Route path="/advocate_add_articles" element={[<AdvocateNavbar />,<FormHead title="Add Articles" />, <AdvocateAddArticle />, <UserFooter />]} />
-          <Route path="/advocate_view_articles" element={[<AdvocateNavbar />,<FormHead title="View Articles" />, <AdvocateViewArticles />, <UserFooter />]} />
-          <Route path="/advocate_edit_articles/:id" element={[<AdvocateNavbar />, <AdvocateEditArticle />, <UserFooter />]} />
-          <Route path="/advocate_view_case_req_access" element={[<AdvocateNavbar />, <AdvocateViewResourceReq />, <UserFooter />]} />
-          <Route path="/advocate_view_appeals" element={[<AdvocateNavbar />,<FormHead title="View Appeals" />, <AdvocateViewAppeals />, <UserFooter />]} />
+          <Route path="/advocate_viewcasereq" element={[<AdvocateNavbar />,<FormHead title="Case Request" />, <Advocate_ViewCaseRequest />, <AdminFooter />]} />
+          <Route path="/advocate_paymentreq/:id" element={[<AdvocateNavbar />,<FormHead title="Payment Request" />, <Advocate_PaymentRequest />, <AdminFooter />]} />
+          <Route path="/advocate_addevidence/:id" element={[<AdvocateNavbar />,<FormHead title="Add Evidence" />, <Advocate_AddEvidence />, <AdminFooter />]} />
+          <Route path="/advocate_view_added_evidences/:id" element={[<AdvocateNavbar />, <AdvocateViewAddedEvidences />, <AdminFooter />]} />
+          <Route path="/advocate_update_casestatus/:id" element={[<AdvocateNavbar />,<FormHead title="Case Status" />, <Advocate_UpdateCaseStatus />, <AdminFooter />]} />
+          <Route path="/advocate_viewjuadvocatereq" element={[<AdvocateNavbar />, <Advocate_ViewJuAdvocateRequest />, <AdminFooter />]} />
+          <Route path="/advocate_view_jnr_adv_profile_req/:id/:aid" element={[<AdvocateNavbar />, <AdvocateViewJnrAdvReqProfile value='request' />, <AdminFooter />]} />
+          <Route path="/advocate_view_intern_profile/:id" element={[<AdvocateNavbar />, <AdvocateViewSingleIntern />, <AdminFooter />]} />
+          <Route path="/advocate_view_client_payment_status/:id" element={[<AdvocateNavbar />, <AdvocateViewClientPaymentStatus />, <AdminFooter />]} />
+          <Route path="/advocate_view_case_status/:id" element={[<AdvocateNavbar />, <AdvocateViewCaseStatus />, <AdminFooter />]} />
+          <Route path="/advocate_assign_cases_to_jnradv/:jid" element={[<AdvocateNavbar />,<FormHead title="Advocate Assign Cases" />, <AdvAssignCasesToJnrAdv />, <AdminFooter />]} />
+          <Route path="/advocate_view_all_jnr_adv" element={[<AdvocateNavbar />, <AdvovatedViewApprovedJnrAdv />, <AdminFooter />]} />
+          <Route path="/advocate_add_complaints" element={[<AdvocateNavbar />,<FormHead title="Add Appeal" />, <AdvocateAddComplaints />, <AdminFooter />]} />
+          <Route path="/advocate_add_articles" element={[<AdvocateNavbar />,<FormHead title="Add Articles" />, <AdvocateAddArticle />, <AdminFooter />]} />
+          <Route path="/advocate_view_articles" element={[<AdvocateNavbar />,<FormHead title="View Articles" />, <AdvocateViewArticles />, <AdminFooter />]} />
+          <Route path="/advocate_edit_articles/:id" element={[<AdvocateNavbar />, <AdvocateEditArticle />, <AdminFooter />]} />
+          <Route path="/advocate_view_case_req_access" element={[<AdvocateNavbar />, <AdvocateViewResourceReq />, <AdminFooter />]} />
+          <Route path="/advocate_view_appeals" element={[<AdvocateNavbar />,<FormHead title="View Appeals" />, <AdvocateViewAppeals />, <AdminFooter />]} />
 
 
           {/* Bar council routes */}
-          <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />,<UserFooter/>]} />
+          <Route path="/BarCouncilLogin" element={[<LandingNavbar />, <BarCouncilLogin />,<AdminFooter/>]} />
           <Route path="/BarCouncil-main" element={<BarCouncilMain/>} /> 
-          <Route path="/BarCouncil-dashboard" element={[<BarcouncilNav/>,<BarCouncilMain data='dashboard'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_advocates" element={[<BarcouncilNav/>,<BarCouncilMain data='viewadvocate'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_details/:id/:type" element={[<BarcouncilNav/>,<BarCouncilMain data='details'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_complines" element={[<BarcouncilNav/>,<BarCouncilMain data='complaints'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_case" element={[<BarcouncilNav/>,<BarCouncilMain data='cases'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_detils/:id" element={[<BarcouncilNav/>,<BarCouncilMain data='case_details'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_d-baradvocate" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate'/>,<UserFooter/>]} />
-          <Route path="/BarCouncil_view_d-baradvocate_details" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate_details'/>,<UserFooter/>]} />
-          <Route path="/add_legal_policies" element={[<BarcouncilNav/>,<BarCouncilMain data='add_legal'/>,<UserFooter/>]} />
-          <Route path="/view_all_appeals" element={[<BarcouncilNav/>,<BarCouncilMain data='appeals'/>,<UserFooter/>]} />
+          <Route path="/BarCouncil-dashboard" element={[<BarcouncilNav/>,<BarCouncilMain data='dashboard'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_advocates" element={[<BarcouncilNav/>,<BarCouncilMain data='viewadvocate'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_details/:id/:type" element={[<BarcouncilNav/>,<BarCouncilMain data='details'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_complines" element={[<BarcouncilNav/>,<BarCouncilMain data='complaints'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_case" element={[<BarcouncilNav/>,<BarCouncilMain data='cases'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_detils/:id" element={[<BarcouncilNav/>,<BarCouncilMain data='case_details'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_d-baradvocate" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate'/>,<AdminFooter/>]} />
+          <Route path="/BarCouncil_view_d-baradvocate_details" element={[<BarcouncilNav/>,<BarCouncilMain data='view_d-bar_advocate_details'/>,<AdminFooter/>]} />
+          <Route path="/add_legal_policies" element={[<BarcouncilNav/>,<BarCouncilMain data='add_legal'/>,<AdminFooter/>]} />
+          <Route path="/view_all_appeals" element={[<BarcouncilNav/>,<BarCouncilMain data='appeals'/>,<AdminFooter/>]} />
 
           {/* Admin routes */}
           <Route path="/AdminLogin" element={[<LandingNavbar />, <FormHead title="Admin Login" />, <AdminLogin />, <AdminFooter />]} />
@@ -206,13 +205,13 @@ function App() {
           <Route path="/adminviewjunioradvocaterequest" element={[<AdminNav />,<AdminMain data='approverejectjunioradvocate'/>, <AdminFooter />]} />
           <Route path="/adminviewalljunioradvocates" element={[<AdminNav />,<AdminMain data="adminviewalljunioradvocates"/>, <AdminFooter />]} />
           <Route path="/JuniorAdvocateViewProfile/:id" element={[<AdminNav />,<AdminMain data='adminviewprofile-alladvocates'/>,<AdminFooter />]} />
-          <Route path="/JuniorAdvocate-profile-request/:id" element={[<AdminNav />,<AdminMain data='adminviewprofile-requests'/>,<UserFooter />]} />
+          <Route path="/JuniorAdvocate-profile-request/:id" element={[<AdminNav />,<AdminMain data='adminviewprofile-requests'/>,<AdminFooter />]} />
 
           
           {/* Landing Page routes */}
-          <Route path="/aboutus" element={[<LandingNavbar />,<AboutUs />,<UserFooter />]} />
-          <Route path="/services" element={[<LandingNavbar />,<LandingServices />,<UserFooter />]} />
-          <Route path="/contactus" element={[<LandingNavbar />,<ContactUs />,<UserFooter />]} />
+          <Route path="/aboutus" element={[<LandingNavbar />,<AboutUs />,<AdminFooter />]} />
+          <Route path="/services" element={[<LandingNavbar />,<LandingServices />,<AdminFooter />]} />
+          <Route path="/contactus" element={[<LandingNavbar />,<ContactUs />,<AdminFooter />]} />
 
 
 

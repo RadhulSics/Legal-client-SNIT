@@ -29,7 +29,7 @@ function AdminNav() {
               height="75"
               className="d-inline-block align-top logo-adjust"
             />{" "}
-            LEGAL LIAISON
+            Casecraft
           </Link>
           <button
             className="navbar-toggler"

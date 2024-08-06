@@ -446,14 +446,36 @@ function AdvocateRegister() {
                   <label className="form-label advocateRegistrationlabel">
                     Specialization Areas :
                   </label>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg form-input-style"
-                    placeholder="Enter Specialization Areas"
+                  <select
+                    className="form-select form-control-lg specialization-form-select"
                     name="specialization"
                     value={data.specialization}
                     onChange={handleChange}
-                  />
+                  >
+                    <option value="" disabled>
+                      Select your Specialization Area
+                    </option>
+                    <option value="Criminal Law">Criminal Law</option>
+                    <option value="Civil Law">Civil Law</option>
+                    <option value="Family Law">Family Law</option>
+                    <option value="Corporate Law">Corporate Law</option>
+                    <option value="Intellectual Property Law">
+                      Intellectual Property Law
+                    </option>
+                    <option value="Environmental Law">Environmental Law</option>
+                    <option value="Tax Law">Tax Law</option>
+                    <option value="Real Estate Law">Real Estate Law</option>
+                    <option value="Constitutional Law">
+                      Constitutional Law
+                    </option>
+                    <option value="Human Rights Law">Human Rights Law</option>
+                    <option value="International Law">International Law</option>
+                    <option value="TBanking and Finance Law">
+                      Banking and Finance Law
+                    </option>
+                    <option value="Immigration Law">Immigration Law</option>
+                    <option value="Health Care Law">Health Care Law</option>
+                  </select>
                   {errors.specialization && (
                     <div className="text-danger">{errors.specialization}</div>
                   )}

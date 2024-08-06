@@ -14,7 +14,7 @@ function AdminFooter() {
   });
 
   return (
-    <div className="admin-footer bg-dark text-white">
+    <div className="admin-footer bg-dark text-white p-5">
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-4 col-md-6 d-flex align-items-center">
@@ -25,7 +25,7 @@ function AdminFooter() {
               width="70"
               height="90"
             />
-            <span className="footer-logo-text-change ml-2">LEGAL LIAISON</span>
+            <span className="footer-logo-text-change ml-2">Casecraft</span>
           </div>
           <div className="col-8 col-md-6  text-md-left mt-3 mt-md-0">
             <span className="footer-text">

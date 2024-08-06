@@ -52,7 +52,7 @@ function AdvocateNavbar() {
               height="50"
               className="d-inline-block align-top"
             />{" "}
-            LEGAL LIAISON
+            Casecraft
           </Link>
           <button
             className="navbar-toggler"
