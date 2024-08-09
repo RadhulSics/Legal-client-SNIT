@@ -115,7 +115,7 @@ function App() {
           <Route path="/user_bookappoinment/:id/:cid" element={[<UserNavbar />,<FormHead title="Advocate Details" />,<User_BookAppoinment />,<AdminFooter/>]} />
           <Route path="/user_chat_to_advocate/:aid" element={[<UserNavbar />,<FormHead title="Chat" />,<UserChattoAdvocate />,<AdminFooter/>]} />
           <Route path="/user_view_case_updations/:id" element={[<UserNavbar />,<FormHead title="Case Details" />,<UserViewCaseUpdates />,<AdminFooter/>]} />
-          <Route path="/user_view_case_status/:id" element={[<UserNavbar />,<FormHead title="Case Status" />,<UserViewCaseStatus />,<AdminFooter/>]} />
+          <Route path="/user_view_case_status/:id" element={[<UserNavbar />,<FormHead title="Case Updates" />,<UserViewCaseStatus />,<AdminFooter/>]} />
           <Route path="/user_view_added_evidences/:id" element={[<UserNavbar />,<FormHead title="Evidences" />,<UserViewCaseEvidences />,<AdminFooter/>]} />
           <Route path="/user_view_adv_payment_req/:id" element={[<UserNavbar />,<FormHead title="Payment" />,<UserViewPaymentReq />,<AdminFooter/>]} />
           <Route path="/user_pay_adv_req/:id" element={[<UserNavbar />,<UserPayAdvReq />,<AdminFooter/>]} />
