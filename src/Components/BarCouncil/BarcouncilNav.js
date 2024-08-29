@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react' 
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'; 
+import { Link, useNavigate } from 'react-router-dom';
 import img1 from "../../Assets/logo2.png";
 import img2 from "../../Assets/Logout.png";
 
-
 function BarcouncilNav() {
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("barcouncilId") === null) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const logout = () => {
     localStorage.clear();
     navigate("/");
+    window.location.reload(false);  
   };
-
-  useEffect(() => {
-    if (localStorage.getItem("barcouncilId" == null)) {
-      navigate("/");
-    }
-  },[navigate]);
 
   return (
     <div>
@@ -45,7 +44,7 @@ function BarcouncilNav() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to="/BarCouncil-dashboard" className="nav-link">
                   Dashboard
@@ -53,35 +52,11 @@ function BarcouncilNav() {
               </li>
               <li className="nav-item">
                 <Link to="/add_legal_policies" className="nav-link">
-                Legal Policies
-                </Link>
-              </li>
-
-              {/* <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
                   Legal Policies
                 </Link>
-
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link to="/add_legal_policies" className="dropdown-item">
-                    Add
-                  </Link>
-                  <Link to="/view_legal_policies" className="dropdown-item">
-                    View
-                  </Link>
-                </div>
-              </li> */}
-              
+              </li>
               <li className="nav-item">
-                <Link to={'/'} onClick={logout} className="nav-link" >
+                <Link onClick={logout} className="nav-link">
                   Logout
                 </Link>
               </li>
@@ -90,7 +65,7 @@ function BarcouncilNav() {
         </div>
       </nav>
     </div>
-  )
+  );
 }
 
-export default BarcouncilNav
+export default BarcouncilNav;

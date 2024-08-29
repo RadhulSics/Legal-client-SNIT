@@ -60,7 +60,7 @@ function BarCouncilLogin() {
 
     if (Object.values(errors).every(error => error === '')) {
       if (data.email === "barcouncil@gmail.com" && data.password === "barcouncil123") {
-        toast.success("Success message!");
+        toast.success("Login Successful");
         navigate('/BarCouncil-dashboard')
         localStorage.setItem('barcouncilId',1)
         // Redirect to admin dashboard or set auth state

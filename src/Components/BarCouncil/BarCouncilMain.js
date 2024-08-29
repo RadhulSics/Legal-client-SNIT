@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BarCouncildashboard from "./BarCouncildashboard";
 import BarCouncilSidebar from "./BarCouncilSidebar";
 import BarCouncilLogin from "./BarCouncilLogin";
@@ -11,8 +11,17 @@ import BarCouncilDbarViewAdvocate from "./BarCouncilDbarViewAdvocate";
 import BarCouncilDbarViewAdocateDetails from "./BarCouncilDbarViewAdocateDetails";
 import BarcouncilAddLegalPolicies from "./BarcouncilAddLegalPolicies";
 import BarcouncilViewAppeals from "./BarcouncilViewAppeals";
+import { useNavigate } from "react-router-dom";
 
 function BarCouncilMain({ data }) {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("barcouncilId" == null)) {
+      navigate("/");
+    }
+  });
+
   return (
     <div>
       <div class="row">
